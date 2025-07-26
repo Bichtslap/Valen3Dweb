@@ -28,29 +28,27 @@ const About = () => {
             ~/about/
           </div>
           <h2 className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tighter">
-            <span className="text-cyan-400">[</span>NOSOTROS<span className="text-cyan-400">]</span>
+            <span className="text-cyan-400">[</span>FILOSOFÍA<span className="text-cyan-400">]</span>
           </h2>
           <p className="text-lg text-gray-400 max-w-3xl mx-auto font-mono">
-            <span className="text-cyan-400">&gt;</span> Somos VALER STUDIOS, un colectivo creativo donde fusionamos arte, tecnología y cultura. No solo creamos visuales; dirigimos experiencias. Cada proyecto es una oportunidad para contar una historia única, transformando tus ideas en un producto final memorable. Desde VFX con calidad cinematográfica hasta mundos 3D, somos tus colaboradores creativos.
+            <span className="text-cyan-400">&gt;</span> VALER STUDIO es mi colectivo creativo, donde fusiono arte, tecnología y cultura. No solo creo visuales; dirijo experiencias. Cada proyecto es una oportunidad para contar una historia única, transformando tus ideas en un producto final memorable. Desde VFX con calidad cinematográfica hasta mundos 3D, soy tu colaborador creativo.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
           <div>
             <h3 className="text-3xl font-black text-white mb-6 font-mono">
-              <span className="text-red-400">//</span> NUESTRA_MISIÓN
+              <span className="text-red-400">//</span>MI_MISIÓN
             </h3>
             <div className="space-y-4 text-gray-300 font-mono leading-relaxed">
               <p>
-                <span className="text-cyan-400">&gt;</span> No solo creamos visuales; dirigimos experiencias.
-                Cada proyecto es una oportunidad para contar una historia única, mezclando la nostalgia del pasado con la innovación del futuro.
+                <span className="text-cyan-400">&gt;</span>  No solo creo visuales; dirijo experiencias. Cada proyecto es una oportunidad para contar una historia única, fusionando la nostalgia del pasado con la innovación del futuro, siempre con un enfoque en la eficiencia y la resolución.
               </p>
               <p>
-                <span className="text-yellow-400">&gt;</span> Desde VFX con calidad cinematográfica hasta mundos 3D con una dirección de arte impecable,
-                creamos piezas que conectan, inspiran y dejan una marca.
+                <span className="text-yellow-400">&gt;</span> Desde VFX con calidad cinematográfica hasta mundos 3D con una dirección de arte impecable, creo piezas que conectan, inspiran y dejan una marca duradera.
               </p>
               <p>
-                <span className="text-red-400">&gt;</span> Somos más que un estudio: somos tus colaboradores creativos. Estamos aquí para transformar tus ideas en un producto final memorable.
+                <span className="text-red-400">&gt;</span> oy más que un estudio: soy tu colaborador creativo. Estoy aquí para transformar tus ideas en un producto final memorable.
               </p>
             </div>
           </div>

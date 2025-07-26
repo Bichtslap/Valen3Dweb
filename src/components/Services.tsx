@@ -44,7 +44,7 @@ const Services = () => {
             ~/skills/load_arsenal
           </div>
           <h2 className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tighter">
-            <span className="text-red-400">[</span>OUR_ARSENAL<span className="text-red-400">]</span>
+            <span className="text-red-400">[</span>NUESTRAS_HERRAMIENTAS<span className="text-red-400">]</span>
           </h2>
           <p className="text-lg text-gray-400 max-w-3xl mx-auto font-mono">
             <span className="text-red-400">&gt;</span> Tools of digital destruction and creation

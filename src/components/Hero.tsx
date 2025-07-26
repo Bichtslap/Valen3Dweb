@@ -145,7 +145,7 @@ const Hero = () => {
             <span className="text-cyan-400">&gt;</span> Un estudio creativo que fusiona la cultura global en 
             <span className="text-red-400"> VFX</span>, 
             <span className="text-yellow-400"> 3D</span>, y  
-            <span className="text-green-400"> motion design </span> que rompe barreras.
+            <span className="text-green-400"> motion design </span> rompiendo barreras con eficiencia y resultados impactantes.
           </p>
           <div className="text-sm text-gray-500 font-mono animate-fade-in-up" style={{ animationDelay: '0.7s' }}>
             <span className="text-cyan-400">Status:</span> ONLINE | 

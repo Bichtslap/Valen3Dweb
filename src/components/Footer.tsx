@@ -3,7 +3,7 @@ import { Instagram, Twitter, Linkedin, Youtube, Terminal } from 'lucide-react';
 
 const Footer = () => {
   const socialLinks = [
-    { icon: Instagram, href: '#', label: 'Instagram', color: 'hover:text-pink-400' },
+    { icon: Instagram, href: 'https://www.instagram.com/valer.studio/', label: 'Instagram', color: 'hover:text-pink-400' },
     { icon: Twitter, href: '#', label: 'Twitter', color: 'hover:text-blue-400' },
     { icon: Linkedin, href: '#', label: 'LinkedIn', color: 'hover:text-blue-600' },
     { icon: Youtube, href: '#', label: 'YouTube', color: 'hover:text-red-500' }
@@ -61,7 +61,7 @@ const Footer = () => {
               <span className="text-yellow-400">//</span> NAVIGATION
             </h4>
             <ul className="space-y-2 text-gray-400 font-mono text-sm">
-              <li><a href="#about" className="hover:text-cyan-400 transition-colors duration-300">WHO_WE_ARE</a></li>
+              <li><a href="#about" className="hover:text-cyan-400 transition-colors duration-300">NOSOTROS</a></li>
               <li><a href="#work" className="hover:text-cyan-400 transition-colors duration-300">DIGITAL_WARFARE</a></li>
               <li><a href="#contact" className="hover:text-cyan-400 transition-colors duration-300">CONNECT</a></li>
               <li><a href="#" className="hover:text-cyan-400 transition-colors duration-300">JOIN_CREW</a></li>
@@ -75,7 +75,7 @@ const Footer = () => {
             <div className="flex items-center justify-between text-gray-400 font-mono text-sm">
               <div className="flex items-center space-x-4">
                 <Terminal className="w-4 h-4 text-cyan-400" />
-                <span>© 2024 VALER_STUDIO. All rights reserved.</span>
+                <span>© 2025 VALER STUDIO. All rights reserved.</span>
               </div>
               <div className="flex space-x-6">
                 <a href="#" className="hover:text-cyan-400 transition-colors duration-300">PRIVACY_POLICY</a>
