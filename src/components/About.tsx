@@ -25,13 +25,13 @@ const About = () => {
         <div className="text-center mb-16">
           <div className="text-cyan-400 font-mono text-sm mb-4">
             <Code className="inline w-4 h-4 mr-2" />
-            ~/about/initialize
+            ~/about/
           </div>
           <h2 className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tighter">
-            <span className="text-cyan-400">[</span>QUIENES_SOMOS<span className="text-cyan-400">]</span>
+            <span className="text-cyan-400">[</span>NOSOTROS<span className="text-cyan-400">]</span>
           </h2>
           <p className="text-lg text-gray-400 max-w-3xl mx-auto font-mono">
-            <span className="text-cyan-400">&gt;</span> Una fusión de arte, tecnología y cultura. Somos un equipo de creadores versátiles inspirados en el cine, la música, y la globalización que define la nueva generación.
+            <span className="text-cyan-400">&gt;</span> Somos VALER STUDIOS, un colectivo creativo donde fusionamos arte, tecnología y cultura. No solo creamos visuales; dirigimos experiencias. Cada proyecto es una oportunidad para contar una historia única, transformando tus ideas en un producto final memorable. Desde VFX con calidad cinematográfica hasta mundos 3D, somos tus colaboradores creativos.
           </p>
         </div>
 
