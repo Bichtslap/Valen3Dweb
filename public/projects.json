@@ -46,7 +46,7 @@
     "status": "DEPLOYED",
     "tech": ["Blender", "Photoshop", "Nuke"],
     "media": [
-      { "type": "image", "url": "/public/img/crocs.png" },
+      { "type": "image", "url": "/img/crocs.png" },
       { "type": "video", "url": "https://player.vimeo.com/video/1105988831?h=7301ced80f" },
       { "type": "video", "url": "https://www.youtube.com/embed/5zpYEeFPwjM" }
     ]
