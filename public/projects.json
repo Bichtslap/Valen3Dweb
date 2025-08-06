@@ -1,54 +1,53 @@
 [
   {
     "id": 1,
-    "title": "NEON_DYSTOPIA",
-    "category": "VFX",
-    "description": "Cyberpunk cityscape that makes Blade Runner look like a documentary.",
-    "longDescription": "Este proyecto fue una inmersión profunda en la creación de atmósferas cyberpunk, utilizando técnicas avanzadas de composición en Nuke y simulaciones de partículas en Houdini para dar vida a una metrópolis futurista y distópica.",
-    "status": "DEPLOYED",
-    "tech": ["After Effects", "Houdini", "Nuke"],
+    "title": "RAUW ALEJANDRO x CROCS",
+    "category": "3D",
+    "description": "Ajustes 3D, animación de cámara y composición para la campaña CGI de Crocs.",
+    "longDescription": "Para este proyecto, mi rol fue optimizar y finalizar una escena 3D existente. Realicé ajustes de animación de cámara para mejorar la narrativa visual, configuré la iluminación y el shading para lograr un look coherente y fotorrealista, y gestioné los render passes para una postproducción eficiente. Finalmente, compuse la escenografía integrando elementos del entorno para dar vida a la visión del cliente.",
+    "status": "COMPLETADO",
+    "tech": ["Blender", "Nuke", "Photoshop", "Dirección de Arte"],
     "media": [
-      { "type": "image", "url": "https://images.pexels.com/photos/2832382/pexels-photo-2832382.jpeg?auto=compress&cs=tinysrgb&w=1260" },
-      { "type": "image", "url": "https://images.pexels.com/photos/2156881/pexels-photo-2156881.jpeg?auto=compress&cs=tinysrgb&w=1260" },
-      { "type": "image", "url": "https://images.pexels.com/photos/1629236/pexels-photo-1629236.jpeg?auto=compress&cs=tinysrgb&w=1260" }
+      { "type": "image", "url": "/img/crocs.png" },
+      { "type": "video", "url": "https://player.vimeo.com/video/1105988831?h=7301ced80f" }
     ]
   },
-  {
+   {
     "id": 2,
-    "title": "TECH_SHOWCASE",
-    "category": "3D",
-    "description": "Product visualization that makes reality jealous of its own existence.",
-    "longDescription": "Visualización de producto fotorrealista creada con Cinema 4D y Octane Render, enfocada en resaltar los detalles del diseño y los materiales.",
-    "status": "LIVE",
-    "tech": ["Cinema 4D", "Octane", "Photoshop"],
+    "title": "MIR NICOLAS - INTRO/AOB",
+    "category": "VFX",
+    "description": "Edición, VFX y postproducción de los videoclips.",
+    "longDescription": "Créditos de producción: Producción musical por @mirnicolas.vyg, Mezcla por @deividpatt_ & @t_a_i_u, Master por @valen.3d. Dirección de @manupons90k y Dirección de Fotografía de @ferrodriguez. Mi rol principal fue encargarme de todos los efectos visuales (VFX) de las piezas.",
+    "status": "COMPLETADO",
+    "tech": ["After Effects", "Photoshop", "Dirección Creativa"],
     "media": [
-      { "type": "video", "url": "https://player.vimeo.com/video/1100939144" }
+      { "type": "image", "url": "/img/aob.png" },
+      { "type": "video", "url": "https://www.youtube.com/embed/zB8eMEoJjvI" }
     ]
   },
   {
     "id": 3,
-    "title": "BRAND_REBELLION",
+    "title": "REBELIÓN DE MARCA",
     "category": "MOTION",
-    "description": "Logo animation that refuses to stay still and demands attention.",
-    "longDescription": "Animación de logo y paquete gráfico completo para una marca emergente. El objetivo era crear una identidad visual dinámica y memorable que funcionara en diversas plataformas digitales.",
-    "status": "ACTIVE",
+    "description": "Animación de logo y branding que exige atención.",
+    "longDescription": "Desarrollo de un paquete de branding completo para una marca emergente. Creé una identidad visual dinámica y memorable, incluyendo animación de logo, transiciones y plantillas para redes sociales, asegurando una presencia consistente y de alto impacto en todas las plataformas digitales.",
+    "status": "ACTIVO",
     "tech": ["After Effects", "Cinema 4D", "Illustrator"],
     "media": [
-        { "type": "image", "url": "https://images.pexels.com/photos/164888/pexels-photo-164888.jpeg?auto=compress&cs=tinysrgb&w=800" }
+      { "type": "image", "url": "https://images.pexels.com/photos/164888/pexels-photo-164888.jpeg?auto=compress&cs=tinysrgb&w=800" }
     ]
   },
   {
     "id": 4,
-    "title": "RAUW ALEJANDRO x CROCS",
-    "category": "3D",
-    "description": "Ajustes 3D, animación de cámara y composición de escena para la campaña CGI de Crocs.",
-    "longDescription": "Para este proyecto tomé una escena previamente iniciada para realizar ajustes clave en su versión final. Mis aportes incluyeron: edición y animación de cámara para mejorar la composición, configuración de iluminación y shading para un look coherente, render passes optimizados para postproducción y la composición de la escenografía con árboles y otros elementos del entorno.",
-    "status": "DEPLOYED",
-    "tech": ["Blender", "Photoshop", "Nuke"],
+    "title": "DISTOPÍA DE NEÓN",
+    "category": "VFX",
+    "description": "Paisaje urbano cyberpunk que redefine el futuro.",
+    "longDescription": "Este proyecto fue una inmersión profunda en la creación de atmósferas cyberpunk. Utilicé técnicas avanzadas de composición en Nuke y simulaciones de partículas en Houdini para dar vida a una metrópolis futurista, lluviosa y vibrante, inspirada en los grandes clásicos del género.",
+    "status": "COMPLETADO",
+    "tech": ["Houdini", "Nuke", "After Effects"],
     "media": [
-      { "type": "image", "url": "/img/crocs.png" },
-      { "type": "video", "url": "https://player.vimeo.com/video/1105988831?h=7301ced80f" },
-      { "type": "video", "url": "https://www.youtube.com/embed/5zpYEeFPwjM" }
+      { "type": "image", "url": "https://images.pexels.com/photos/2832382/pexels-photo-2832382.jpeg?auto=compress&cs=tinysrgb&w=1260" },
+      { "type": "image", "url": "https://images.pexels.com/photos/2156881/pexels-photo-2156881.jpeg?auto=compress&cs=tinysrgb&w=1260" }
     ]
   }
 ]

@@ -1,16 +1,9 @@
 import React from 'react';
-import { Code, Zap, Users } from 'lucide-react';
+import { Code, Zap, Target, User } from 'lucide-react';
 
 const About = () => {
-  const stats = [
-    { icon: Code, label: 'Proyectos Completados', value: '50+', color: 'text-cyan-400' },
-    { icon: Users, label: 'Colaboraciones Exitosas', value: '25+', color: 'text-red-400' },
-    { icon: Zap, label: 'Años de Experiencia', value: '7+', color: 'text-yellow-400' },
-  ];
-
   return (
     <section id="about" className="py-20 bg-gray-950 relative">
-      {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0" style={{
           backgroundImage: `
@@ -24,68 +17,75 @@ const About = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <div className="text-cyan-400 font-mono text-sm mb-4">
-            <Code className="inline w-4 h-4 mr-2" />
-            ~/about/
+            <User className="inline w-4 h-4 mr-2" />
+            ~/whoami
           </div>
           <h2 className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tighter">
-            <span className="text-cyan-400">[</span>FILOSOFÍA<span className="text-cyan-400">]</span>
+            <span className="text-cyan-400">[</span>SOBRE_MÍ<span className="text-cyan-400">]</span>
           </h2>
           <p className="text-lg text-gray-400 max-w-3xl mx-auto font-mono">
-            <span className="text-cyan-400">&gt;</span> VALER STUDIO es mi colectivo creativo, donde fusiono arte, tecnología y cultura. No solo creo visuales; dirijo experiencias. Cada proyecto es una oportunidad para contar una historia única, transformando tus ideas en un producto final memorable. Desde VFX con calidad cinematográfica hasta mundos 3D, soy tu colaborador creativo.
+            <span className="text-cyan-400">&gt;</span> Soy Valentin Marey un generalista 3D, director creativo multidisciplinario y autodidacta desde 2013.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <h3 className="text-3xl font-black text-white mb-6 font-mono">
-              <span className="text-red-400">//</span>MI_MISIÓN
+              <span className="text-red-400">//</span>MI_MANIFIESTO
             </h3>
-            <div className="space-y-4 text-gray-300 font-mono leading-relaxed">
+            <div className="space-y-4 text-gray-300 font-mono leading-relaxed text-base">
               <p>
-                <span className="text-cyan-400">&gt;</span>  No solo creo visuales; dirijo experiencias. Cada proyecto es una oportunidad para contar una historia única, fusionando la nostalgia del pasado con la innovación del futuro, siempre con un enfoque en la eficiencia y la resolución.
+                <span className="text-cyan-400">&gt;</span> Cansado de la burocracia y la ineficiencia, creé <strong>Valer Studios</strong> como una "One Person Company". Mi modelo es simple: <strong>comunicación directa, cero intermediarios y un enfoque obsesivo en la calidad.</strong>
               </p>
               <p>
-                <span className="text-yellow-400">&gt;</span> Desde VFX con calidad cinematográfica hasta mundos 3D con una dirección de arte impecable, creo piezas que conectan, inspiran y dejan una marca duradera.
+                <span className="text-yellow-400">&gt;</span> Me involucro en cada proyecto desde la concepción hasta la entrega, asegurando que tu visión se transforme en un producto final potente y memorable.
               </p>
               <p>
-                <span className="text-red-400">&gt;</span> oy más que un estudio: soy tu colaborador creativo. Estoy aquí para transformar tus ideas en un producto final memorable.
+                <span className="text-red-400">&gt;</span> Como generalista, mi fortaleza es la versatilidad. Desde la dirección de arte y 3D hasta la postproducción, controlo cada detalle para garantizar un resultado coherente y de alto impacto.
               </p>
             </div>
           </div>
           
           <div className="relative">
-            <div className="bg-black border border-cyan-400/30 p-8 relative">
-              {/* Terminal Header */}
+            <div className="bg-black/50 backdrop-blur-sm border border-cyan-400/30 p-8 relative rounded-2xl">
               <div className="flex items-center mb-6 border-b border-gray-800 pb-3">
                 <div className="flex space-x-2">
                   <div className="w-3 h-3 bg-red-500 rounded-full"></div>
                   <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
                   <div className="w-3 h-3 bg-green-500 rounded-full"></div>
                 </div>
-                <div className="text-gray-400 text-xs font-mono ml-4">Estadísticas:</div>
+                <div className="text-gray-400 text-xs font-mono ml-4">core_principles.sh</div>
               </div>
               
               <div className="space-y-6">
-                {stats.map((stat, index) => {
-                  const IconComponent = stat.icon;
-                  return (
-                    <div key={index} className="flex items-center space-x-4">
-                      <div className="bg-gray-900 border border-gray-700 p-3">
-                        <IconComponent className={`w-6 h-6 ${stat.color}`} />
-                      </div>
-                      <div>
-                        <div className={`text-2xl font-black ${stat.color} font-mono`}>
-                          {stat.value}
-                        </div>
-                        <div className="text-gray-400 text-sm font-mono">{stat.label}</div>
-                      </div>
-                    </div>
-                  );
-                })}
+                <div className="flex items-start space-x-4">
+                  <div className="bg-gray-900 border border-gray-700 p-3 mt-1 rounded-lg">
+                    <Zap className="w-6 h-6 text-cyan-400" />
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-black text-cyan-400 font-mono">Eficiencia Radical</h4>
+                    <p className="text-gray-400 text-sm font-mono">Procesos ágiles para resultados más rápidos y mejores.</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-4">
+                  <div className="bg-gray-900 border border-gray-700 p-3 mt-1 rounded-lg">
+                    <Target className="w-6 h-6 text-red-400" />
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-black text-red-400 font-mono">Calidad Obsesiva</h4>
+                    <p className="text-gray-400 text-sm font-mono">Atención al detalle en cada pixel, frame y sonido.</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-4">
+                  <div className="bg-gray-900 border border-gray-700 p-3 mt-1 rounded-lg">
+                    <Code className="w-6 h-6 text-yellow-400" />
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-black text-yellow-400 font-mono">Comunicación Directa</h4>
+                    <p className="text-gray-400 text-sm font-mono">Hablás directamente conmigo. Sin demoras.</p>
+                  </div>
+                </div>
               </div>
-              
-              {/* Glitch Effect */}
-              <div className="absolute top-0 right-0 w-2 h-full bg-gradient-to-b from-cyan-400 to-transparent opacity-20"></div>
             </div>
           </div>
         </div>

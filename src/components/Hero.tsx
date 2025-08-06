@@ -1,9 +1,6 @@
-// ===== CAMBIO AQUÍ: Actualiza la importación con el nombre correcto de tu logo =====
 import valerLogoUrl from '../assets/valer_studios_white_text.svg';
-// Asegúrate de que la ruta a tu logo sea correcta.
-
 import React, { useEffect, useState } from 'react';
-import { ChevronDown, Terminal } from 'lucide-react';
+import { Terminal } from 'lucide-react';
 
 const Hero = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -17,6 +14,7 @@ const Hero = () => {
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
+  
 
   const parallaxFactor = {
     grid: -0.005,
@@ -31,7 +29,6 @@ const Hero = () => {
 
   return (
     <section id="home" className="min-h-screen bg-black relative overflow-hidden flex items-center justify-center">
-      {/* ... (Video y Grid sin cambios) ... */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
         <iframe
           title="vimeo-player"
@@ -48,23 +45,6 @@ const Hero = () => {
         }}
       >
         <div className="absolute inset-0 animated-grid-background" style={{
-          backgroundImage: `
-            linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px)
-          `,
-          backgroundSize: '50px 50px'
-        }}></div>
-      </div>
-
-      {/* ... (Elementos flotantes sin cambios) ... */}
-{/* Grid Background con movimiento */}
-      <div 
-        className="absolute inset-0 opacity-20 z-10"
-        style={{
-          transform: `translate(${mousePosition.x * parallaxFactor.grid}px, ${mousePosition.y * parallaxFactor.grid}px)`,
-        }}
-      >
-        <div className="absolute inset-0" style={{
           backgroundImage: `
             linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px),
             linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px)
@@ -90,41 +70,29 @@ const Hero = () => {
       {/* Bloques de código flotantes con movimiento */}
       <div 
         className="absolute text-cyan-400 font-mono text-xs opacity-30 z-10"
-        style={{
-          transform: `translate(${mousePosition.x * parallaxFactor.renderText}px, ${mousePosition.y * parallaxFactor.renderText}px)`,
-          top: '15%', left: '10%'
-        }}
+        style={{ transform: `translate(${mousePosition.x * parallaxFactor.renderText}px, ${mousePosition.y * parallaxFactor.renderText}px)`, top: '15%', left: '10%' }}
       >
         {'{ render: true }'}
       </div>
       <div 
         className="absolute text-red-400 font-mono text-xs opacity-30 z-10"
-        style={{
-          transform: `translate(${mousePosition.x * parallaxFactor.vfxText}px, ${mousePosition.y * parallaxFactor.vfxText}px)`,
-          top: '70%', right: '15%'
-        }}
+        style={{ transform: `translate(${mousePosition.x * parallaxFactor.vfxText}px, ${mousePosition.y * parallaxFactor.vfxText}px)`, top: '70%', right: '15%' }}
       >
         {'</VFX>'}
       </div>
-      {/* ===== INICIO: NUEVOS BLOQUES DE CÓDIGO ===== */}
       <div 
         className="absolute text-yellow-400 font-mono text-xs opacity-30 z-10"
-        style={{
-          transform: `translate(${mousePosition.x * parallaxFactor.graphicsText}px, ${mousePosition.y * parallaxFactor.graphicsText}px)`,
-          top: '25%', right: '20%'
-        }}
+        style={{ transform: `translate(${mousePosition.x * parallaxFactor.graphicsText}px, ${mousePosition.y * parallaxFactor.graphicsText}px)`, top: '25%', right: '20%' }}
       >
         {'{ 3D GRAPHICS }'}
       </div>
       <div 
         className="absolute text-green-400 font-mono text-xs opacity-30 z-10"
-        style={{
-          transform: `translate(${mousePosition.x * parallaxFactor.creativityText}px, ${mousePosition.y * parallaxFactor.creativityText}px)`,
-          bottom: '20%', left: '18%'
-        }}
+        style={{ transform: `translate(${mousePosition.x * parallaxFactor.creativityText}px, ${mousePosition.y * parallaxFactor.creativityText}px)`, bottom: '20%', left: '18%' }}
       >
         {'{ creativity: adaptable }'}
       </div>
+      
       {/* Contenido Principal */}
       <div className="relative z-20 text-center px-6 flex flex-col items-center">
         <div className="mb-8">
@@ -133,13 +101,11 @@ const Hero = () => {
             ~/hacelo valer/~
           </div>
           
-          {/* ===== CAMBIO AQUÍ: Usamos el nuevo contenedor para el efecto CRT ===== */}
           <div className="logo-crt-container">
             <img src={valerLogoUrl} alt="Valer Studios Logo" style={{ width: '100%' }} />
-      </div>
+          </div>
         </div>
         
-        {/* ... (Resto del contenido sin cambios) ... */}
         <div className="max-w-4xl mx-auto mb-12">
           <p className="text-lg md:text-xl text-gray-400 mb-6 font-mono leading-relaxed animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
             <span className="text-cyan-400">&gt;</span> Un estudio creativo que fusiona la cultura global en 
@@ -152,21 +118,25 @@ const Hero = () => {
             <span className="text-green-400"> Open for Work </span>
           </div>
         </div>
+        
+        {/* ===== BOTONES MODIFICADOS AQUÍ ===== */}
         <div className="flex flex-col sm:flex-row gap-6 justify-center animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
-          <button className="px-8 py-4 bg-cyan-400 text-black font-bold rounded-none hover:bg-cyan-300 transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-cyan-400/25 font-mono tracking-wider">
-            [VIEW PROJECTS]
-          </button>
-           {/* ===== CAMBIO AQUÍ: Se convirtió el botón en un enlace <a> ===== */}
+          <a 
+            href="#work"
+            className="px-8 py-4 bg-cyan-400 text-black font-bold rounded-lg hover:bg-cyan-300 transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-cyan-400/25 font-mono tracking-wider"
+          >
+            [VER PROYECTOS]
+          </a>
           <a 
             href="#contact" 
-            className="px-8 py-4 border-2 border-cyan-400 text-cyan-400 font-bold rounded-none hover:bg-cyan-400 hover:text-black transition-all duration-300 transform hover:scale-105 font-mono tracking-wider"
+            className="px-8 py-4 border-2 border-cyan-400 text-cyan-400 font-bold rounded-lg hover:bg-cyan-400 hover:text-black transition-all duration-300 transform hover:scale-105 font-mono tracking-wider"
           >
-            [LET'S TALK]
+            [HABLEMOS]
           </a>
         </div>
-      </div>
+        {/* ===================================== */}
 
-      {/* ... (Chevron y Scan lines del fondo sin cambios) ... */}
+      </div>
     </section>
   );
 };
