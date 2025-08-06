@@ -101,3 +101,126 @@ html {
   animation: blink 1s infinite;
   color: #00ffff;
 }
+
+/* ... (tus estilos existentes) ... */
+
+/* BORRA LOS ESTILOS DEL POPUP ANTERIORES Y USA ESTOS */
+
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* Usamos Grid para el layout principal del pop-up */
+.popup-content-grid {
+  display: grid;
+  grid-template-columns: 3fr 2fr; /* Proporción 60% para medios, 40% para info */
+  width: 100%;
+  height: auto;
+  max-width: 1200px;
+  max-height: 90vh;
+  background-color: #0a0a0a;
+  border: 1px solid #00ffff40;
+  animation: slideInUp 0.4s ease-out forwards;
+}
+
+/* Columna de la izquierda (medios) */
+.popup-media-area {
+  position: relative;
+  grid-column: 1 / 2;
+  /* La clave está aquí: forzamos el aspecto 16:9 */
+  aspect-ratio: 16 / 9;
+  background-color: #000;
+}
+
+/* Columna de la derecha (información) */
+.popup-info-area {
+  grid-column: 2 / 3;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.popup-close-button {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  color: #000;
+  background-color: #00ffff;
+  border: 2px solid #00ffff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 1010;
+  cursor: pointer;
+}
+
+.popup-close-button:hover {
+  transform: rotate(90deg) scale(1.1);
+  box-shadow: 0 0 15px #00ffff;
+}
+
+/* Contenido de la imagen/video (llena el contenedor 16:9) */
+.popup-media-area img,
+.popup-media-area iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 0;
+}
+
+/* Estilos del carrusel (sin cambios) */
+.carousel-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: 1px solid #00ffff80;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.carousel-nav:hover { background-color: #00ffff; color: black; }
+.carousel-nav.left-0 { left: 1rem; }
+.carousel-nav.right-0 { right: 1rem; }
+.carousel-dots {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+}
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid #00ffff80;
+  transition: all 0.3s ease;
+}
+.dot.active { background-color: #00ffff; transform: scale(1.2); }
+
+/* Scrollbar para la descripción */
+.popup-info-area::-webkit-scrollbar { width: 6px; }
+.popup-info-area::-webkit-scrollbar-track { background: #1a1a1a; }
+.popup-info-area::-webkit-scrollbar-thumb { background: #ff0040; }
+
+/* Keyframes (ya deberías tenerlos, si no, añádelos) */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideInUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
