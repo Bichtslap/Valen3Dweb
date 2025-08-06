@@ -10,28 +10,43 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 function App() {
-  // Hook para inicializar y manejar el scroll suave
   useEffect(() => {
-    // Inicializamos Lenis con algunas opciones para un feeling más suave
+    // 1. Inicializamos Lenis
     const lenis = new Lenis({
       duration: 0.7,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Easing suave
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     });
 
-    // Función que se ejecuta en cada frame para actualizar el scroll
+    // 2. Sincronizamos el scroll con el loop de animación del navegador
     function raf(time: number) {
       lenis.raf(time);
       requestAnimationFrame(raf);
     }
-
-    // Empezamos el loop de animación
     requestAnimationFrame(raf);
 
-    // Limpieza: es importante destruir la instancia de Lenis si el componente se desmonta
+    // 3. ===== AQUÍ ESTÁ LA MAGIA =====
+    // Esta función intercepta los clics en los links del menú
+    // y le dice a Lenis que haga el scroll suave.
+    const handleLinkClick = (e: Event) => {
+      const target = e.currentTarget as HTMLAnchorElement;
+      const hash = target.hash;
+
+      if (hash) {
+        e.preventDefault();
+        lenis.scrollTo(hash, { offset: 0, duration: 1.5 });
+      }
+    };
+
+    // Aplicamos el listener a todos los links de ancla
+    const anchorLinks = document.querySelectorAll('a[href^="#"]');
+    anchorLinks.forEach(link => link.addEventListener('click', handleLinkClick));
+
+    // 4. Limpieza: removemos los listeners cuando el componente se desmonta
     return () => {
+      anchorLinks.forEach(link => link.removeEventListener('click', handleLinkClick));
       lenis.destroy();
     };
-  }, []); // El array vacío asegura que esto se ejecute solo una vez
+  }, []);
 
   return (
     <div className="min-h-screen bg-gray-900">
