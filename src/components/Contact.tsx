@@ -4,7 +4,7 @@ import { Mail, MessageSquare, MapPin, Send, Terminal } from 'lucide-react';
 const Contact = () => {
   const contactInfo = [
     { icon: Mail, title: 'EMAIL', content: 'contacto@valerstudio.com.ar', link: 'mailto:valentinmarey@gmail.com', color: 'text-cyan-400'},
-    { icon: MessageSquare, title: 'LINEA_DIRECTA', content: '+54 (11) 5095-1458', link: 'tel:+541150951458', color: 'text-red-400'},
+    { icon: MessageSquare, title: 'WHATSAPP', content: '+54 11 5095-1458', link: 'https://wa.me/5491150951458', color: 'text-red-400'},
     { icon: MapPin, title: 'UBICACION', content: 'Buenos Aires, AR', link: null, color: 'text-yellow-400'}
   ];
 
@@ -23,51 +23,40 @@ const Contact = () => {
             <span className="text-green-400">&gt;</span> ¿Tenés una idea o un proyecto en mente? Hablemos y hagámoslo realidad.
           </p>
         </div>
-
         <div className="grid lg:grid-cols-2 gap-12">
           <div>
-            <div className="bg-gray-900/50 backdrop-blur-sm border border-cyan-400/30 p-8 rounded-2xl">
-              <h3 className="text-2xl font-black text-white mb-8 font-mono"><span className="text-cyan-400">//</span> INFO_DE_CONTACTO</h3>
+            <div className="bg-gray-900/50 backdrop-blur-sm border border-cyan-400/30 p-8 rounded-2xl h-full">
+              <h3 className="text-2xl font-black text-white mb-8 font-mono"><span className="text-cyan-400">//</span> INFO DE CONTACTO</h3>
               <div className="space-y-6">
-                {contactInfo.map((info, index) => {
-                  const IconComponent = info.icon;
-                  return (
-                    <div key={index} className="flex items-center space-x-4 group">
-                      <div className="bg-gray-900 border border-gray-700 p-3 group-hover:border-cyan-400/50 transition-colors duration-300 rounded-xl">
-                        <IconComponent className={`w-6 h-6 ${info.color}`} />
-                      </div>
-                      <div>
-                        <div className="text-gray-400 text-sm font-mono">{info.title}</div>
-                        {info.link ? (
-                          <a href={info.link} className={`${info.color} hover:text-white transition-colors duration-300 font-mono`}>{info.content}</a>
-                        ) : (
-                          <div className={`${info.color} font-mono`}>{info.content}</div>
-                        )}
-                      </div>
+                {contactInfo.map((info) => (
+                  <div key={info.title} className="flex items-center space-x-4 group">
+                    <div className="bg-gray-900 border border-gray-700 p-3 group-hover:border-cyan-400/50 transition-colors duration-300 rounded-xl">
+                      <info.icon className={`w-6 h-6 ${info.color}`} />
                     </div>
-                  );
-                })}
+                    <div>
+                      <div className="text-gray-400 text-sm font-mono">{info.title}</div>
+                      {info.link ? (
+                        <a href={info.link} target="_blank" rel="noopener noreferrer" className={`${info.color} hover:text-white transition-colors duration-300 font-mono`}>{info.content}</a>
+                      ) : (
+                        <div className={`${info.color} font-mono`}>{info.content}</div>
+                      )}
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
-
           <div>
-            <div className="bg-gray-900/50 backdrop-blur-sm border border-red-400/30 p-8 rounded-2xl">
-              {/* ===== INICIO DE CAMBIOS IMPORTANTES ===== */}
+            <div className="bg-gray-900/50 backdrop-blur-sm border border-red-400/30 p-8 rounded-2xl h-full">
               <form 
                 name="contact" 
                 method="POST" 
+                action="/gracias"
                 data-netlify="true"
                 netlify-honeypot="bot-field"
               >
-                {/* Campo oculto para decirle a Netlify el nombre del formulario */}
                 <input type="hidden" name="form-name" value="contact" />
-                <p className="hidden">
-                  <label>
-                    Don’t fill this out if you’re human: <input name="bot-field" />
-                  </label>
-                </p>
-
+                <p className="hidden"><label>No llenar: <input name="bot-field" /></label></p>
                 <div className="space-y-6">
                   <div>
                     <label htmlFor="name" className="block text-cyan-400 mb-2 font-mono text-sm">NOMBRE:</label>
@@ -87,7 +76,6 @@ const Contact = () => {
                   </button>
                 </div>
               </form>
-              {/* ===== FIN DE CAMBIOS IMPORTANTES ===== */}
             </div>
           </div>
         </div>
@@ -95,5 +83,4 @@ const Contact = () => {
     </section>
   );
 };
-
 export default Contact;

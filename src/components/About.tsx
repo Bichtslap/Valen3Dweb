@@ -18,7 +18,7 @@ const About = () => {
         <div className="text-center mb-16">
           <div className="text-cyan-400 font-mono text-sm mb-4">
             <User className="inline w-4 h-4 mr-2" />
-            ~/whoami
+            ~/
           </div>
           <h2 className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tighter">
             <span className="text-cyan-400">[</span>SOBRE_MÍ<span className="text-cyan-400">]</span>

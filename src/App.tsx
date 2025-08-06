@@ -14,7 +14,7 @@ function App() {
   useEffect(() => {
     // Inicializamos Lenis con algunas opciones para un feeling más suave
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: 0.7,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Easing suave
     });
 

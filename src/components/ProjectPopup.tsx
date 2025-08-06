@@ -48,7 +48,18 @@ const ProjectPopup: React.FC<ProjectPopupProps> = ({ project, onClose }) => {
     e.stopPropagation();
     setCurrentSlide((prev) => (prev === 0 ? project.media.length - 1 : prev - 1));
   };
+useEffect(() => {
+  const handleKeyDown = (event: KeyboardEvent) => {
+    if (event.key === 'Escape') {
+      onClose();
+    }
+  };
 
+  window.addEventListener('keydown', handleKeyDown);
+  return () => {
+    window.removeEventListener('keydown', handleKeyDown);
+  };
+}, [onClose]);
   const renderMedia = (mediaItem: Media) => {
     if (mediaItem.type === 'video') {
       return (
