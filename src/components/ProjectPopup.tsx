@@ -1,11 +1,15 @@
+// src/components/ProjectPopup.tsx
+
 import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 
+// ... (interfaces sin cambios)
 interface Media {
   type: 'image' | 'video';
   url: string;
+  orientation: 'horizontal' | 'vertical' | 'square';
 }
-
 interface Project {
   title: string;
   category: string;
@@ -14,13 +18,14 @@ interface Project {
   tech: string[];
   media: Media[];
 }
-
 interface ProjectPopupProps {
   project: Project | null;
   onClose: () => void;
 }
 
+
 const ProjectPopup: React.FC<ProjectPopupProps> = ({ project, onClose }) => {
+  // ... (lógica sin cambios)
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
@@ -30,10 +35,15 @@ const ProjectPopup: React.FC<ProjectPopupProps> = ({ project, onClose }) => {
     } else {
       document.body.style.overflow = 'auto';
     }
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', handleKeyDown);
     return () => {
       document.body.style.overflow = 'auto';
+      window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [project]);
+  }, [project, onClose]);
 
   if (!project) return null;
 
@@ -48,18 +58,7 @@ const ProjectPopup: React.FC<ProjectPopupProps> = ({ project, onClose }) => {
     e.stopPropagation();
     setCurrentSlide((prev) => (prev === 0 ? project.media.length - 1 : prev - 1));
   };
-useEffect(() => {
-  const handleKeyDown = (event: KeyboardEvent) => {
-    if (event.key === 'Escape') {
-      onClose();
-    }
-  };
 
-  window.addEventListener('keydown', handleKeyDown);
-  return () => {
-    window.removeEventListener('keydown', handleKeyDown);
-  };
-}, [onClose]);
   const renderMedia = (mediaItem: Media) => {
     if (mediaItem.type === 'video') {
       return (
@@ -72,21 +71,26 @@ useEffect(() => {
         ></iframe>
       );
     }
-    return <img src={mediaItem.url} alt={project.title} className="w-full h-full object-cover" />;
+    return <img src={mediaItem.url} alt={project.title} className="w-full h-full object-contain" />;
   };
+  
+  const currentOrientation = project.media[currentSlide]?.orientation || 'horizontal';
 
-  return (
-    <div className="popup-overlay" onClick={onClose}>
-      <div className="popup-content-grid" onClick={(e) => e.stopPropagation()}>
-        <div className="popup-media-area">
+  return createPortal(
+    <div className={`popup-overlay is-${currentOrientation}`} onClick={onClose}>
+      <div className={`popup-content-grid is-${currentOrientation}`} onClick={(e) => e.stopPropagation()}>
+        
+        {/* ===== INICIO DEL CAMBIO ===== */}
+        <div className="popup-media-area"> {/* Este es ahora el contenedor relativo */}
           <button onClick={onClose} className="popup-close-button">
             <X size={24} />
           </button>
           
-          <div className="w-full h-full relative overflow-hidden">
+          <div className="w-full h-full"> {/* Este div solo contiene la media */}
             {renderMedia(project.media[currentSlide])}
           </div>
 
+          {/* Los controles son hermanos de la media, pero hijos del área */}
           {hasCarousel && (
             <>
               <button onClick={prevSlide} className="carousel-nav left-0"><ChevronLeft size={24} /></button>
@@ -99,6 +103,7 @@ useEffect(() => {
             </>
           )}
         </div>
+        {/* ===== FIN DEL CAMBIO ===== */}
 
         <div className="popup-info-area">
           <div className="text-cyan-400 font-mono text-sm font-bold mb-2">
@@ -107,11 +112,9 @@ useEffect(() => {
           <h2 className="text-3xl font-black text-white mb-4 font-mono tracking-wider glitch-text" data-text={project.title}>
             {project.title}
           </h2>
-          
           <div className="text-gray-300 font-mono text-sm leading-relaxed mb-8 prose prose-invert prose-p:text-gray-300">
             <p>{project.longDescription || project.description}</p>
           </div>
-
           <div>
             <div className="text-yellow-400 font-mono text-xs font-bold mb-4">
               // STACK_TECNOLÓGICO:
@@ -126,7 +129,8 @@ useEffect(() => {
           </div>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };
 

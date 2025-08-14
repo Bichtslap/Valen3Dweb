@@ -18,6 +18,7 @@ const Header = () => {
     { href: '#about', label: 'SOBRE MÍ' },
     { href: '#work', label: 'PROYECTOS' },
     { href: '#services', label: 'SERVICIOS' },
+    { href: '#workflow', label: 'WORKFLOW' },
     { href: '#contact', label: 'CONTACTO' },
   ];
 

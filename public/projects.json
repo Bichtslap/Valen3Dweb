@@ -8,8 +8,8 @@
     "status": "COMPLETADO",
     "tech": ["Blender", "Nuke", "Photoshop", "Dirección de Arte"],
     "media": [
-      { "type": "image", "url": "/img/crocs.png" },
-      { "type": "video", "url": "https://player.vimeo.com/video/1105988831?h=7301ced80f" }
+      { "type": "image", "url": "/img/crocs.png", "orientation": "horizontal" },
+      { "type": "video", "url": "https://player.vimeo.com/video/1105988831?h=7301ced80f", "orientation": "horizontal" }
     ]
   },
    {
@@ -21,20 +21,20 @@
     "status": "COMPLETADO",
     "tech": ["After Effects", "Photoshop", "Dirección Creativa"],
     "media": [
-      { "type": "image", "url": "/img/aob.png" },
-      { "type": "video", "url": "https://www.youtube.com/embed/zB8eMEoJjvI" }
+      { "type": "image", "url": "/img/aob.png" , "orientation": "horizontal"},
+      { "type": "video", "url": "https://www.youtube.com/embed/zB8eMEoJjvI", "orientation": "horizontal" }
     ]
   },
   {
     "id": 3,
-    "title": "REBELIÓN DE MARCA",
+    "title": "test ",
     "category": "MOTION",
     "description": "Animación de logo y branding que exige atención.",
     "longDescription": "Desarrollo de un paquete de branding completo para una marca emergente. Creé una identidad visual dinámica y memorable, incluyendo animación de logo, transiciones y plantillas para redes sociales, asegurando una presencia consistente y de alto impacto en todas las plataformas digitales.",
     "status": "ACTIVO",
     "tech": ["After Effects", "Cinema 4D", "Illustrator"],
     "media": [
-      { "type": "image", "url": "https://images.pexels.com/photos/164888/pexels-photo-164888.jpeg?auto=compress&cs=tinysrgb&w=800" }
+      { "type": "image", "url": "https://images.pexels.com/photos/164888/pexels-photo-164888.jpeg?auto=compress&cs=tinysrgb&w=800", "orientation": "horizontal" }
     ]
   },
   {
@@ -46,8 +46,10 @@
     "status": "COMPLETADO",
     "tech": ["Houdini", "Nuke", "After Effects"],
     "media": [
-      { "type": "image", "url": "https://images.pexels.com/photos/2832382/pexels-photo-2832382.jpeg?auto=compress&cs=tinysrgb&w=1260" },
-      { "type": "image", "url": "https://images.pexels.com/photos/2156881/pexels-photo-2156881.jpeg?auto=compress&cs=tinysrgb&w=1260" }
+      { "type": "image", "url": "https://images.pexels.com/photos/2832382/pexels-photo-2832382.jpeg?auto=compress&cs=tinysrgb&w=1260", "orientation": "vertical" },
+      { "type": "image", "url": "https://images.pexels.com/photos/2156881/pexels-photo-2156881.jpeg?auto=compress&cs=tinysrgb&w=1260", "orientation": "horizontal" },
+      { "type": "video", "url": "https://player.vimeo.com/video/1105988831?h=7301ced80f", "orientation": "horizontal" }
     ]
   }
+  
 ]
