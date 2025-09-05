@@ -12,7 +12,7 @@
       { "type": "video", "url": "https://player.vimeo.com/video/1105988831?h=7301ced80f", "orientation": "horizontal" }
     ]
   },
-   {
+  {
     "id": 2,
     "title": "MIR NICOLAS - INTRO/AOB",
     "category": "VFX",
@@ -30,26 +30,25 @@
     "title": "test ",
     "category": "MOTION",
     "description": "Animación de logo y branding que exige atención.",
-    "longDescription": "Desarrollo de un paquete de branding completo para una marca emergente. Creé una identidad visual dinámica y memorable, incluyendo animación de logo, transiciones y plantillas para redes sociales, asegurando una presencia consistente y de alto impacto en todas las plataformas digitales.",
+    "longDescription": "Motion Graphics de genericos en base al branding generado por Pogo Creative Co para los show de USN, Ademas del visual de pastizal diseñado en 3D en Blender. ",
     "status": "ACTIVO",
     "tech": ["After Effects", "Cinema 4D", "Illustrator"],
     "media": [
-      { "type": "image", "url": "https://images.pexels.com/photos/164888/pexels-photo-164888.jpeg?auto=compress&cs=tinysrgb&w=800", "orientation": "horizontal" }
+           { "type": "image", "url": "/img/USDN.png" , "orientation": "horizontal"},
+           { "type": "video", "url": "https://www.youtube.com/embed/zB8eMEoJjvI", "orientation": "horizontal" }
     ]
   },
-  {
+   {
     "id": 4,
-    "title": "DISTOPÍA DE NEÓN",
+    "title": "EMILIA - FACTS",
     "category": "VFX",
-    "description": "Paisaje urbano cyberpunk que redefine el futuro.",
-    "longDescription": "Este proyecto fue una inmersión profunda en la creación de atmósferas cyberpunk. Utilicé técnicas avanzadas de composición en Nuke y simulaciones de partículas en Houdini para dar vida a una metrópolis futurista, lluviosa y vibrante, inspirada en los grandes clásicos del género.",
-    "status": "COMPLETADO",
+    "description": "Videoclip",
+    "longDescription": "Formé parte del equipo de comp vfx en el videoclip, realizando tareas de recorte de personaje (eliminación de fondo verde), integración y animación de fondos 3D.\n\nCréditos: dirección general @julitaconde, producción ejecutiva @anestesia.av, jefa de postproducción @_darussian, jefe de vfx y compo @nic0martins, dirección de arte @victoria.scratch, diseño gráfico integral @yaisalinas, jefe de desarrollo 3d @criswallss, equipo de vfx, edit y compo: @indajaus._ @eeffes @redonchelo @agustintorresvfx @leo_tbm @valen.3d @clashivfx @leomarswar @santiagotibe @lr.waldo @_pablo.pez @vermithg @p8.motion.",
+   "status": "COMPLETADO",
     "tech": ["Houdini", "Nuke", "After Effects"],
     "media": [
-      { "type": "image", "url": "https://images.pexels.com/photos/2832382/pexels-photo-2832382.jpeg?auto=compress&cs=tinysrgb&w=1260", "orientation": "vertical" },
-      { "type": "image", "url": "https://images.pexels.com/photos/2156881/pexels-photo-2156881.jpeg?auto=compress&cs=tinysrgb&w=1260", "orientation": "horizontal" },
-      { "type": "video", "url": "https://player.vimeo.com/video/1105988831?h=7301ced80f", "orientation": "horizontal" }
+      { "type": "image", "url": "https://i.ytimg.com/vi/N0SaRhYL7ds/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLABL1zciUp8FdcBbSvyu14wp3nyHA", "orientation": "horizontal" },
+      { "type": "video", "url": "https://www.youtube.com/embed/N0SaRhYL7ds", "orientation": "horizontal" }
     ]
   }
-  
 ]

@@ -80,17 +80,15 @@ const ProjectPopup: React.FC<ProjectPopupProps> = ({ project, onClose }) => {
     <div className={`popup-overlay is-${currentOrientation}`} onClick={onClose}>
       <div className={`popup-content-grid is-${currentOrientation}`} onClick={(e) => e.stopPropagation()}>
         
-        {/* ===== INICIO DEL CAMBIO ===== */}
-        <div className="popup-media-area"> {/* Este es ahora el contenedor relativo */}
+        <div className="popup-media-area">
           <button onClick={onClose} className="popup-close-button">
             <X size={24} />
           </button>
           
-          <div className="w-full h-full"> {/* Este div solo contiene la media */}
+          <div className="w-full h-full">
             {renderMedia(project.media[currentSlide])}
           </div>
 
-          {/* Los controles son hermanos de la media, pero hijos del área */}
           {hasCarousel && (
             <>
               <button onClick={prevSlide} className="carousel-nav left-0"><ChevronLeft size={24} /></button>
@@ -103,7 +101,6 @@ const ProjectPopup: React.FC<ProjectPopupProps> = ({ project, onClose }) => {
             </>
           )}
         </div>
-        {/* ===== FIN DEL CAMBIO ===== */}
 
         <div className="popup-info-area">
           <div className="text-cyan-400 font-mono text-sm font-bold mb-2">
@@ -112,9 +109,13 @@ const ProjectPopup: React.FC<ProjectPopupProps> = ({ project, onClose }) => {
           <h2 className="text-3xl font-black text-white mb-4 font-mono tracking-wider glitch-text" data-text={project.title}>
             {project.title}
           </h2>
+          {/* ===== INICIO DEL CAMBIO ===== */}
           <div className="text-gray-300 font-mono text-sm leading-relaxed mb-8 prose prose-invert prose-p:text-gray-300">
-            <p>{project.longDescription || project.description}</p>
+            <p style={{ whiteSpace: 'pre-line' }}> 
+              {project.longDescription || project.description}
+            </p>
           </div>
+          {/* ===== FIN DEL CAMBIO ===== */}
           <div>
             <div className="text-yellow-400 font-mono text-xs font-bold mb-4">
               // STACK_TECNOLÓGICO:
