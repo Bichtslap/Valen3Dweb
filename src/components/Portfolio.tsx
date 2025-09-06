@@ -1,33 +1,47 @@
 import React, { useState, useEffect } from 'react';
 import { Terminal, Eye } from 'lucide-react';
-// Ya no importamos ProjectPopup aquí
+import { collection, onSnapshot, Firestore } from "firebase/firestore";
 
-// Definimos la interfaz para las props
 interface PortfolioProps {
   onProjectSelect: (project: any) => void;
+  db: Firestore | null;
 }
 
-const Portfolio: React.FC<PortfolioProps> = ({ onProjectSelect }) => {
+const Portfolio: React.FC<PortfolioProps> = ({ onProjectSelect, db }) => {
   const [activeFilter, setActiveFilter] = useState('ALL');
-  // Quitamos el estado del popup de aquí
   const [projects, setProjects] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('/projects.json').then(response => response.json()).then(data => {
-        setProjects(data);
-        setLoading(false);
-      }).catch(error => {
-        console.error("Error al cargar los proyectos:", error);
-        setLoading(false);
-      });
-  }, []);
+    if (!db) {
+      setLoading(false);
+      console.log("Firestore DB not available yet.");
+      return;
+    }
+
+    setLoading(true);
+    // This special variable is provided by the environment.
+    const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+    
+    // Path to the public collection for your projects
+    const projectsCollectionRef = collection(db, `/artifacts/${appId}/public/data/projects`);
+    
+    const unsubscribe = onSnapshot(projectsCollectionRef, (snapshot) => {
+      const projectsData = snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id }));
+      // You might want to sort by a timestamp field here if you add one
+      setProjects(projectsData);
+      setLoading(false);
+    }, (error) => {
+      console.error("Error fetching projects from Firestore:", error);
+      setLoading(false);
+    });
+
+    // Cleanup subscription on component unmount
+    return () => unsubscribe();
+  }, [db]); // Re-run effect if the db instance changes
 
   const filters = ['ALL', '3D', 'VFX', 'MOTION'];
-
   const filteredProjects = activeFilter === 'ALL' ? projects : projects.filter(p => p.category === activeFilter);
-
-  // Ya no necesitamos las funciones open/close aquí
 
   return (
     <section id="work" className="py-20 bg-gray-950 relative">
@@ -60,13 +74,13 @@ const Portfolio: React.FC<PortfolioProps> = ({ onProjectSelect }) => {
           </div>
         </div>
 
-        {loading ? (<div className="text-center text-cyan-400 font-mono">Cargando proyectos...</div>) : (
+        {loading ? (<div className="text-center text-cyan-400 font-mono">Cargando proyectos desde la nube...</div>) : (
           <div className="grid lg:grid-cols-3 gap-8">
             {filteredProjects.map((project) => (
               <div
                 key={project.id}
                 className="group bg-black/50 backdrop-blur-sm border border-gray-800 hover:border-cyan-400/50 transition-all duration-500 relative overflow-hidden cursor-pointer rounded-2xl"
-                onClick={() => onProjectSelect(project)} // Usamos la prop para abrir el popup
+                onClick={() => onProjectSelect(project)}
               >
                 <div className="relative overflow-hidden aspect-video bg-black rounded-t-2xl">
                   <img src={project.media[0]?.url} alt={project.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"/>
@@ -93,7 +107,6 @@ const Portfolio: React.FC<PortfolioProps> = ({ onProjectSelect }) => {
         )}
       </div>
     </section>
-    // El popup ya no se renderiza aquí
   );
 };
 

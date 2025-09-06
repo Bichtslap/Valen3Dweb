@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valer Studio | Gestor de Proyectos</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root { --tw-bg-opacity: 1; background-color: rgb(17 24 39 / var(--tw-bg-opacity)); }
+    body { font-family: 'Inter', sans-serif; background-color: #000; color: #fff; }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #000; }
+    ::-webkit-scrollbar-thumb { background: #00ffff; }
+    .glitch-text::before, .glitch-text::after { content: attr(data-text); position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; }
+    .glitch-text::before { animation: glitch-1 1s infinite steps(2, end); color: #00ffff; z-index: -1; }
+    .glitch-text::after { animation: glitch-2 1.5s infinite steps(2, end); color: #ff0040; z-index: -2; }
+    @keyframes glitch-1 { 0%, 100% { clip-path: inset(50% 0 30% 0); transform: translate(-0.05em, -0.025em); } 25% { clip-path: inset(20% 0 60% 0); transform: translate(0.05em, 0.025em); } 50% { clip-path: inset(80% 0 5% 0); transform: translate(-0.05em, 0.05em); } 75% { clip-path: inset(40% 0 45% 0); transform: translate(0.05em, -0.05em); } }
+    @keyframes glitch-2 { 0%, 100% { clip-path: inset(70% 0 15% 0); transform: translate(0.025em, 0.01em); } 33% { clip-path: inset(0 0 90% 0); transform: translate(-0.025em, -0.01em); } 66% { clip-path: inset(90% 0 0 0); transform: translate(0.025em, 0); } }
+    .form-input, .form-select, .form-textarea {
+        background-color: #000;
+        border: 1px solid #4a4a4a;
+        transition: border-color 0.3s;
+    }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+        outline: none;
+        border-color: #00ffff;
+    }
+    .media-card { border: 1px solid #333; }
+    .progress-bar { transition: width 0.3s; }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Inconsolata:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-black text-gray-200 font-['Inconsolata']">
+
+  <div id="app" class="container mx-auto p-4 md:p-8">
+    
+    <!-- Login Section -->
+    <div id="login-section" class="max-w-md mx-auto mt-16 border border-cyan-400/30 p-8 rounded-2xl bg-gray-900/50 backdrop-blur-sm">
+      <h1 class="text-3xl font-black text-white mb-2 text-center font-['Inter']">
+        <span class="text-cyan-400">[</span>GESTOR_DE_PROYECTOS<span class="text-cyan-400">]</span>
+      </h1>
+      <p class="text-center text-gray-400 mb-8">Iniciá sesión para administrar tu portfolio.</p>
+      <form id="login-form">
+        <div class="space-y-6">
+          <div>
+            <label for="email" class="block text-cyan-400 mb-2 text-sm">EMAIL:</label>
+            <input required type="email" id="email" class="w-full px-4 py-3 text-white rounded-lg form-input" placeholder="tu@email.com"/>
+          </div>
+          <div>
+            <label for="password" class="block text-cyan-400 mb-2 text-sm">CONTRASEÑA:</label>
+            <input required type="password" id="password" class="w-full px-4 py-3 text-white rounded-lg form-input" placeholder="••••••••"/>
+          </div>
+           <p id="login-error" class="text-red-400 text-sm hidden"></p>
+          <button type="submit" class="w-full bg-cyan-400 text-black font-black py-3 hover:bg-cyan-300 transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2 rounded-lg font-['Inter'] tracking-wider">
+            <span>[ACCEDER]</span>
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Main Content Section (Hidden by default) -->
+    <div id="main-content" class="hidden">
+      <header class="flex justify-between items-center mb-8 pb-4 border-b border-cyan-400/20">
+        <div>
+           <h1 class="text-3xl font-black text-white font-['Inter'] glitch-text" data-text="[PANEL_ADMIN]">
+            [PANEL_ADMIN]
+          </h1>
+          <p id="user-email" class="text-cyan-400 text-sm"></p>
+        </div>
+        <button id="logout-button" class="bg-red-500/20 text-red-400 border border-red-500/50 px-4 py-2 rounded-lg hover:bg-red-500 hover:text-black transition-colors">
+          Cerrar Sesión
+        </button>
+      </header>
+      
+      <!-- Project Form (Add/Edit) -->
+      <div id="project-form-container" class="bg-gray-900/50 border border-gray-700 p-6 rounded-2xl mb-8">
+        <form id="project-form">
+          <input type="hidden" id="project-id">
+          <h2 id="form-title" class="text-2xl font-black text-yellow-400 mb-6 font-['Inter']">// Nuevo Proyecto</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Text Inputs -->
+            <input required id="title" class="form-input col-span-2 p-3 rounded-lg" placeholder="Título del Proyecto">
+            <select required id="category" class="form-select col-span-1 p-3 rounded-lg">
+                <option value="3D">3D</option>
+                <option value="VFX">VFX</option>
+                <option value="MOTION">MOTION</option>
+            </select>
+            <select required id="status" class="form-select col-span-1 p-3 rounded-lg">
+                <option value="COMPLETADO">COMPLETADO</option>
+                <option value="ACTIVO">ACTIVO</option>
+                <option value="EN DESARROLLO">EN DESARROLLO</option>
+            </select>
+            <textarea required id="description" class="form-textarea col-span-2 p-3 rounded-lg h-24" placeholder="Descripción corta"></textarea>
+            <textarea id="longDescription" class="form-textarea col-span-2 p-3 rounded-lg h-40" placeholder="Descripción larga (opcional)"></textarea>
+            <input id="tech" class="form-input col-span-2 p-3 rounded-lg" placeholder="Stack Tecnológico (separado por comas: Blender, Nuke, ...)">
+            
+            <!-- Media Section -->
+            <div class="col-span-2">
+                <h3 class="text-xl font-bold text-cyan-400 mb-4 font-['Inter']">// Archivos Multimedia</h3>
+                <div id="media-inputs" class="space-y-4">
+                    <!-- Dynamic media inputs will be inserted here -->
+                </div>
+                <button type="button" id="add-media-button" class="mt-4 bg-cyan-400/20 text-cyan-400 border border-cyan-500/50 px-4 py-2 rounded-lg hover:bg-cyan-500 hover:text-black transition-colors">
+                    + Añadir Media
+                </button>
+            </div>
+          </div>
+          <div class="flex gap-4 mt-8">
+            <button type="submit" id="save-button" class="flex-1 bg-green-500 text-black font-bold py-3 rounded-lg hover:bg-green-400 transition-colors">Guardar Proyecto</button>
+            <button type="button" id="cancel-button" class="flex-1 bg-gray-600 text-white font-bold py-3 rounded-lg hover:bg-gray-500 transition-colors">Cancelar</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Project List -->
+      <div>
+        <h2 class="text-2xl font-black text-cyan-400 mb-6 font-['Inter']">[PROYECTOS_EXISTENTES]</h2>
+        <div id="project-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Projects will be listed here -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    // Import Firebase modules
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    import { getFirestore, collection, onSnapshot, doc, addDoc, updateDoc, deleteDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+    import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
+
+    // --- ¡PEGÁ TU FIREBASE CONFIG AQUÍ! ---
+    const firebaseConfig = {
+      apiKey: "AIzaSyDA4Q5CO_5C5vPabjkmRlz2ZsrufGhhjk0",
+      authDomain: "valer-studio-portfolio.firebaseapp.com",
+      projectId: "valer-studio-portfolio",
+      storageBucket: "valer-studio-portfolio.firebasestorage.app",
+      messagingSenderId: "944935495214",
+      appId: "1:944935495214:web:dcc06bd1e28230680721bf"
+        };
+    // ------------------------------------
+
+    const appId = (firebaseConfig.projectId || 'default-app-id').replace(/\//g, '_');
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+    const storage = getStorage(app);
+    
+    // Firestore collection reference (PUBLIC)
+    const projectsCollectionRef = collection(db, `artifacts/${appId}/public/data/projects`);
+
+    // --- DOM ELEMENTS ---
+    const loginSection = document.getElementById('login-section');
+    const mainContent = document.getElementById('main-content');
+    const loginForm = document.getElementById('login-form');
+    const loginError = document.getElementById('login-error');
+    const userEmailEl = document.getElementById('user-email');
+    const logoutButton = document.getElementById('logout-button');
+    const projectForm = document.getElementById('project-form');
+    const projectList = document.getElementById('project-list');
+    const mediaInputsContainer = document.getElementById('media-inputs');
+    const addMediaButton = document.getElementById('add-media-button');
+    const formTitle = document.getElementById('form-title');
+    const saveButton = document.getElementById('save-button');
+    const cancelButton = document.getElementById('cancel-button');
+
+    // --- AUTHENTICATION ---
+    onAuthStateChanged(auth, user => {
+      if (user) {
+        loginSection.classList.add('hidden');
+        mainContent.classList.remove('hidden');
+        userEmailEl.textContent = user.email;
+        loadProjects();
+      } else {
+        loginSection.classList.remove('hidden');
+        mainContent.classList.add('hidden');
+      }
+    });
+
+    loginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      signInWithEmailAndPassword(auth, email, password)
+        .catch(error => {
+            loginError.textContent = "Error: " + error.message;
+            loginError.classList.remove('hidden');
+        });
+    });
+
+    logoutButton.addEventListener('click', () => {
+      signOut(auth);
+    });
+
+    // --- FORM HANDLING ---
+    let mediaCounter = 0;
+    
+    const createMediaInput = (media = {}) => {
+        const id = mediaCounter++;
+        const div = document.createElement('div');
+        div.className = 'media-card p-4 rounded-lg bg-gray-800 space-y-3';
+        div.id = `media-block-${id}`;
+        
+        div.innerHTML = `
+          <div class="flex justify-between items-center">
+            <h4 class="font-bold text-sm text-yellow-300">Media #${id + 1}</h4>
+            <button type="button" class="remove-media-button text-red-400 hover:text-red-300" data-id="${id}">&times; Borrar</button>
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+              <select class="media-type form-select p-2 rounded-lg text-sm" data-id="${id}">
+                  <option value="image" ${media.type === 'image' ? 'selected' : ''}>Imagen (subir)</option>
+                  <option value="video_upload" ${media.type === 'video_upload' ? 'selected' : ''}>Video (subir .mp4/.webm)</option>
+                  <option value="video_embed" ${media.type === 'video_embed' ? 'selected' : ''}>Video (embed YouTube/Vimeo)</option>
+              </select>
+              <select class="media-orientation form-select p-2 rounded-lg text-sm" data-id="${id}">
+                  <option value="horizontal" ${media.orientation === 'horizontal' ? 'selected' : ''}>Horizontal</option>
+                  <option value="vertical" ${media.orientation === 'vertical' ? 'selected' : ''}>Vertical</option>
+                  <option value="square" ${media.orientation === 'square' ? 'selected' : ''}>Cuadrado</option>
+              </select>
+          </div>
+          <div class="media-source" data-id="${id}"></div>
+          <div class="progress-container hidden bg-gray-700 rounded-full h-2.5">
+            <div class="progress-bar bg-cyan-400 h-2.5 rounded-full" style="width: 0%"></div>
+          </div>
+          <input type="hidden" class="media-url" value="${media.url || ''}">
+        `;
+        mediaInputsContainer.appendChild(div);
+        updateMediaSourceInput(id);
+    };
+    
+    const updateMediaSourceInput = (id) => {
+        const block = document.getElementById(`media-block-${id}`);
+        const typeSelector = block.querySelector('.media-type');
+        const sourceContainer = block.querySelector('.media-source');
+        const urlInput = block.querySelector('.media-url');
+
+        let sourceHTML = '';
+        if (typeSelector.value === 'video_embed') {
+            sourceHTML = `<input type="url" class="form-input w-full p-2 rounded-lg text-sm" placeholder="https://player.vimeo.com/..." value="${urlInput.value || ''}">`;
+        } else {
+            sourceHTML = `<input type="file" class="form-input w-full text-sm file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-cyan-50 file:text-cyan-700 hover:file:bg-cyan-100">`;
+             if (urlInput.value) {
+                sourceHTML += `<div class="text-xs text-green-400 mt-1">Archivo subido: <a href="${urlInput.value}" target="_blank" class="underline">${urlInput.value.split('?')[0].split('%2F').pop()}</a></div>`;
+            }
+        }
+        sourceContainer.innerHTML = sourceHTML;
+    };
+
+    addMediaButton.addEventListener('click', () => createMediaInput());
+
+    mediaInputsContainer.addEventListener('change', (e) => {
+        if (e.target.classList.contains('media-type')) {
+            updateMediaSourceInput(e.target.dataset.id);
+        }
+    });
+    
+     mediaInputsContainer.addEventListener('click', e => {
+        if (e.target.classList.contains('remove-media-button')) {
+            document.getElementById(`media-block-${e.target.dataset.id}`).remove();
+        }
+    });
+
+    const loadProjects = () => {
+        onSnapshot(projectsCollectionRef, (snapshot) => {
+            const projects = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+            projectList.innerHTML = '';
+            projects.forEach(project => {
+                const projectCard = document.createElement('div');
+                projectCard.className = 'bg-gray-900 border border-gray-700 p-4 rounded-xl flex flex-col';
+                projectCard.innerHTML = `
+                    <img src="${project.media[0]?.url || 'https://placehold.co/400x225/000000/333333?text=No+Image'}" alt="${project.title}" class="w-full h-40 object-cover rounded-lg mb-4">
+                    <h3 class="font-bold text-white text-lg font-['Inter'] flex-grow">${project.title}</h3>
+                    <p class="text-sm text-cyan-400 mb-4">${project.category}</p>
+                    <div class="flex gap-2 mt-auto">
+                        <button class="edit-button w-full bg-yellow-500/20 text-yellow-300 border border-yellow-500/50 py-2 rounded-md hover:bg-yellow-500 hover:text-black transition-colors text-sm" data-id="${project.id}" data-project='${JSON.stringify(project)}'>Editar</button>
+                        <button class="delete-button w-full bg-red-500/20 text-red-400 border border-red-500/50 py-2 rounded-md hover:bg-red-500 hover:text-black transition-colors text-sm" data-id="${project.id}">Borrar</button>
+                    </div>
+                `;
+                projectList.appendChild(projectCard);
+            });
+        });
+    };
+    
+    const resetForm = () => {
+        projectForm.reset();
+        document.getElementById('project-id').value = '';
+        mediaInputsContainer.innerHTML = '';
+        mediaCounter = 0;
+        formTitle.textContent = '// Nuevo Proyecto';
+        saveButton.textContent = 'Guardar Proyecto';
+    }
+
+    cancelButton.addEventListener('click', resetForm);
+    
+    projectList.addEventListener('click', (e) => {
+        const target = e.target.closest('button');
+        if (!target) return;
+        
+        const id = target.dataset.id;
+
+        if (target.classList.contains('edit-button')) {
+            const projectData = JSON.parse(target.dataset.project);
+            formTitle.textContent = `// Editando: ${projectData.title}`;
+            saveButton.textContent = 'Actualizar Proyecto';
+            document.getElementById('project-id').value = projectData.id;
+            document.getElementById('title').value = projectData.title;
+            document.getElementById('category').value = projectData.category;
+            document.getElementById('status').value = projectData.status;
+            document.getElementById('description').value = projectData.description;
+            document.getElementById('longDescription').value = projectData.longDescription || '';
+            document.getElementById('tech').value = projectData.tech.join(', ');
+            
+            mediaInputsContainer.innerHTML = '';
+            mediaCounter = 0;
+            projectData.media.forEach(createMediaInput);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        if (target.classList.contains('delete-button')) {
+             if (confirm('¿Estás seguro de que querés borrar este proyecto? Esta acción no se puede deshacer.')) {
+                deleteDoc(doc(db, `/artifacts/${appId}/public/data/projects`, id));
+            }
+        }
+    });
+
+    projectForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        saveButton.disabled = true;
+        saveButton.textContent = 'Guardando...';
+
+        try {
+            const mediaBlocks = mediaInputsContainer.querySelectorAll('.media-card');
+            const mediaData = [];
+
+            for (const block of mediaBlocks) {
+                const type = block.querySelector('.media-type').value;
+                const orientation = block.querySelector('.media-orientation').value;
+                const sourceInput = block.querySelector('.media-source input');
+                const hiddenUrlInput = block.querySelector('.media-url');
+                const progressContainer = block.querySelector('.progress-container');
+                const progressBar = block.querySelector('.progress-bar');
+                let url = hiddenUrlInput.value;
+
+                if (type === 'video_embed') {
+                    url = sourceInput.value;
+                } else if (sourceInput.files && sourceInput.files[0]) {
+                    const file = sourceInput.files[0];
+                    const storageRef = ref(storage, `projects/${Date.now()}_${file.name}`);
+                    const uploadTask = uploadBytesResumable(storageRef, file);
+                    
+                    url = await new Promise((resolve, reject) => {
+                        uploadTask.on('state_changed', 
+                            (snapshot) => {
+                                const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                                progressContainer.classList.remove('hidden');
+                                progressBar.style.width = progress + '%';
+                            }, 
+                            (error) => { console.error("Upload failed:", error); reject(error); }, 
+                            () => { getDownloadURL(uploadTask.snapshot.ref).then(resolve); }
+                        );
+                    });
+                }
+                
+                let finalType = (type === 'video_embed' || type === 'video_upload') ? 'video' : 'image';
+                if (url) mediaData.push({ type: finalType, url, orientation });
+            }
+            
+            const projectData = {
+                title: document.getElementById('title').value,
+                category: document.getElementById('category').value,
+                status: document.getElementById('status').value,
+                description: document.getElementById('description').value,
+                longDescription: document.getElementById('longDescription').value,
+                tech: document.getElementById('tech').value.split(',').map(t => t.trim()),
+                media: mediaData,
+                lastUpdated: serverTimestamp()
+            };
+
+            const projectId = document.getElementById('project-id').value;
+            if (projectId) {
+                await updateDoc(doc(db, `/artifacts/${appId}/public/data/projects`, projectId), projectData);
+            } else {
+                await addDoc(projectsCollectionRef, projectData);
+            }
+            resetForm();
+        } catch (error) {
+            console.error("Error saving project: ", error);
+            alert("Hubo un error al guardar el proyecto.");
+        } finally {
+            saveButton.disabled = false;
+        }
+    });
+    
+    lucide.createIcons();
+  </script>
+</body>
+</html>
+
