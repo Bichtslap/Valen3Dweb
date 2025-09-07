@@ -386,6 +386,8 @@ const Portfolio: React.FC<PortfolioProps> = ({ onProjectSelect, db, appId }) => 
     
     const unsubscribe = onSnapshot(projectsCollectionRef, (snapshot) => {
       const projectsData = snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id }));
+      // 8. ORDENAR LOS PROYECTOS AL RECIBIRLOS
+      projectsData.sort((a, b) => (a.order ?? Infinity) - (b.order ?? Infinity));
       setProjects(projectsData);
       setLoading(false);
     }, (error) => {
@@ -822,8 +824,6 @@ function App() {
   const closePopup = () => setSelectedProject(null);
 
   useEffect(() => {
-    // --- CAMBIO IMPORTANTE AQUÍ ---
-    // Leemos las variables de entorno de Vite en lugar de variables globales
     try {
       if (import.meta.env.VITE_FIREBASE_CONFIG && import.meta.env.VITE_APP_ID) {
         const firebaseConfig = JSON.parse(import.meta.env.VITE_FIREBASE_CONFIG);
@@ -841,7 +841,6 @@ function App() {
       console.error("Error initializing Firebase:", error);
     }
     
-    // --- Lenis Smooth Scroll Initialization (async part) ---
     let lenisInstance: any = null;
     let animationFrameId: number;
     
@@ -920,3 +919,4 @@ function App() {
 }
 
 export default App;
+
