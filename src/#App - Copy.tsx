@@ -822,21 +822,21 @@ function App() {
   const closePopup = () => setSelectedProject(null);
 
   useEffect(() => {
-    // --- CAMBIO IMPORTANTE AQUÍ ---
-    // Leemos las variables de entorno de Vite en lugar de variables globales
+    // --- Firebase Initialization (sync part) ---
     try {
-      if (import.meta.env.VITE_FIREBASE_CONFIG && import.meta.env.VITE_APP_ID) {
-        const firebaseConfig = JSON.parse(import.meta.env.VITE_FIREBASE_CONFIG);
-        const id = import.meta.env.VITE_APP_ID.replace(/\//g, '_');
+        const firebaseConfigStr = typeof __firebase_config !== 'undefined' ? __firebase_config : '{}';
+        const firebaseConfig = JSON.parse(firebaseConfigStr);
+        const id = (typeof __app_id !== 'undefined' ? __app_id : 'default-app-id').replace(/\//g, '_');
 
-        const app = initializeApp(firebaseConfig);
-        const firestore = getFirestore(app);
-        setDb(firestore);
-        setAppId(id);
-        console.log("Firebase initialized successfully.");
-      } else {
-        console.error("Firebase config environment variables not found.");
-      }
+        if (Object.keys(firebaseConfig).length > 0) {
+            const app = initializeApp(firebaseConfig);
+            const firestore = getFirestore(app);
+            setDb(firestore);
+            setAppId(id);
+            console.log("Firebase initialized successfully.");
+        } else {
+             console.error("Firebase config is not available.");
+        }
     } catch (error) {
       console.error("Error initializing Firebase:", error);
     }
@@ -887,6 +887,7 @@ function App() {
         if (animationFrameId) {
             cancelAnimationFrame(animationFrameId);
         }
+        // Cleanup for event listeners can be added here if needed
     };
   }, []);
 
