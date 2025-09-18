@@ -1,54 +1,110 @@
 [
   {
-    "id": 1,
-    "title": "RAUW ALEJANDRO x CROCS",
-    "category": "3D",
-    "description": "Ajustes 3D, animación de cámara y composición para la campaña CGI de Crocs.",
-    "longDescription": "Para este proyecto, mi rol fue optimizar y finalizar una escena 3D existente. Realicé ajustes de animación de cámara para mejorar la narrativa visual, configuré la iluminación y el shading para lograr un look coherente y fotorrealista, y gestioné los render passes para una postproducción eficiente. Finalmente, compuse la escenografía integrando elementos del entorno para dar vida a la visión del cliente.",
-    "status": "COMPLETADO",
-    "tech": ["Blender", "Nuke", "Photoshop", "Dirección de Arte"],
-    "media": [
-      { "type": "image", "url": "/img/crocs.png", "orientation": "horizontal" },
-      { "type": "video", "url": "https://player.vimeo.com/video/1105988831?h=7301ced80f", "orientation": "horizontal" }
-    ]
-  },
-  {
-    "id": 2,
-    "title": "MIR NICOLAS - INTRO/AOB",
+    "id": "nicki_nicole",
+    "title": "NICKI NICOLE - SHOW INTRO",
     "category": "VFX",
-    "description": "Edición, VFX y postproducción de los videoclips.",
-    "longDescription": "Créditos de producción: Producción musical por @mirnicolas.vyg, Mezcla por @deividpatt_ & @t_a_i_u, Master por @valen.3d. Dirección de @manupons90k y Dirección de Fotografía de @ferrodriguez. Mi rol principal fue encargarme de todos los efectos visuales (VFX) de las piezas.",
-    "status": "COMPLETADO",
-    "tech": ["After Effects", "Photoshop", "Dirección Creativa"],
+    "description": "Dirección Visual Integral y 3D/VFX para la apertura de su show.",
+    "longDescription": "El desafío fue crear una introducción de alto impacto para el show de Nicki. Mi rol, de la mano de la directora Jess Praznik, fue la dirección visual integral de la pieza, encargándome de la conceptualización, 3D, VFX y composición final.",
+    "status": "DIRECCIÓN VISUAL",
+    "tech": ["Dirección Creativa", "Cinema 4D", "After Effects", "Nuke"],
     "media": [
-      { "type": "image", "url": "/img/aob.png" , "orientation": "horizontal"},
-      { "type": "video", "url": "https://www.youtube.com/embed/zB8eMEoJjvI", "orientation": "horizontal" }
+      { "type": "video", "url": "https://player.vimeo.com/video/902235951?h=be1331a89d", "orientation": "horizontal" }
     ]
   },
   {
-    "id": 3,
-    "title": "test ",
-    "category": "MOTION",
-    "description": "Animación de logo y branding que exige atención.",
-    "longDescription": "Motion Graphics de genericos en base al branding generado por Pogo Creative Co para los show de USN, Ademas del visual de pastizal diseñado en 3D en Blender. ",
-    "status": "ACTIVO",
-    "tech": ["After Effects", "Cinema 4D", "Illustrator"],
+    "id": "el_eternauta",
+    "title": "El Eternauta (Netflix)",
+    "category": "VFX",
+    "description": "Parte del equipo de Composición de Efectos Visuales para la serie de Netflix.",
+    "longDescription": "Como parte del equipo de composición de VFX en Control VFX, mi tarea fue asegurar la integración perfecta de efectos visuales en múltiples planos de la serie, trabajando con los más altos estándares de la industria.",
+    "status": "PRODUCCIÓN INTERNACIONAL",
+    "tech": ["Nuke", "Composición Digital", "VFX"],
     "media": [
-           { "type": "image", "url": "/img/USDN.png" , "orientation": "horizontal"},
-           { "type": "video", "url": "https://www.youtube.com/embed/zB8eMEoJjvI", "orientation": "horizontal" }
+      { "type": "image", "url": "https://www.revistadeartes.com.ar/wp-content/uploads/2023/05/Eternauta-OK.jpg", "orientation": "horizontal" }
+    ]
+  },
+  {
+    "id": "emilia_facts",
+    "title": "EMILIA - FACTS",
+    "category": "VFX",
+    "description": "Parte del equipo de composición de VFX en el videoclip oficial.",
+    "longDescription": "Formé parte del equipo de composición de VFX para el videoclip, realizando tareas de recorte de personaje (chroma key), integración de fondos 3D y animación de elementos. Créditos: Dirección @julitaconde, Producción @anestesia.av, Jefe de VFX @nic0martins.",
+    "status": "INDUSTRIA MUSICAL",
+    "tech": ["Nuke", "After Effects", "Composición VFX"],
+    "media": [
+      { "type": "video", "url": "https://www.youtube.com/embed/N0SaRhYL7ds", "orientation": "horizontal" }
+    ]
+  },
+  {
+    "id": "duki",
+    "title": "DUKI - Temporada de Reggaetón",
+    "category": "MOTION",
+    "description": "Co-Dirección Creativa y Motion Graphics para la campaña visual del álbum.",
+    "longDescription": "Junto al equipo, mi rol fue definir la línea visual y ejecutar gran parte de las piezas de motion graphics que acompañaron el lanzamiento del álbum, creando un universo visual coherente y potente.",
+    "status": "DIRECCIÓN CREATIVA",
+    "tech": ["After Effects", "Dirección de Arte", "Motion Graphics"],
+    "media": [
+      { "type": "video", "url": "https://player.vimeo.com/video/679906692?h=79e7c53051", "orientation": "horizontal" }
     ]
   },
    {
-    "id": 4,
-    "title": "EMILIA - FACTS",
+    "id": "47_street",
+    "title": "47 STREET - INVIERNO 2023",
     "category": "VFX",
-    "description": "Videoclip",
-    "longDescription": "Formé parte del equipo de comp vfx en el videoclip, realizando tareas de recorte de personaje (eliminación de fondo verde), integración y animación de fondos 3D.\n\nCréditos: dirección general @julitaconde, producción ejecutiva @anestesia.av, jefa de postproducción @_darussian, jefe de vfx y compo @nic0martins, dirección de arte @victoria.scratch, diseño gráfico integral @yaisalinas, jefe de desarrollo 3d @criswallss, equipo de vfx, edit y compo: @indajaus._ @eeffes @redonchelo @agustintorresvfx @leo_tbm @valen.3d @clashivfx @leomarswar @santiagotibe @lr.waldo @_pablo.pez @vermithg @p8.motion.",
-   "status": "COMPLETADO",
-    "tech": ["Houdini", "Nuke", "After Effects"],
+    "description": "Composición de VFX y supervisión en set para la campaña de invierno.",
+    "longDescription": "Mi participación abarcó dos áreas: la supervisión en el set de filmación para asegurar una correcta captura del material para VFX, y la posterior composición digital de múltiples planos.",
+    "status": "CAMPAÑA PUBLICITARIA",
+    "tech": ["Supervisión en Set", "Composición VFX", "Nuke"],
     "media": [
-      { "type": "image", "url": "https://i.ytimg.com/vi/N0SaRhYL7ds/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLABL1zciUp8FdcBbSvyu14wp3nyHA", "orientation": "horizontal" },
-      { "type": "video", "url": "https://www.youtube.com/embed/N0SaRhYL7ds", "orientation": "horizontal" }
+       { "type": "video", "url": "https://player.vimeo.com/video/804616995?h=4f32b13739", "orientation": "horizontal" }
+    ]
+  },
+  {
+    "id": "paloma_mami",
+    "title": "Paloma Mami - Códigos de Muñeca",
+    "category": "3D",
+    "description": "Artista 3D de Iluminación y Render para los visualizers del disco.",
+    "longDescription": "Participé como 3D Lighting & Rendering Artist para la productora BM Studio, donde mi trabajo fue iluminar, optimizar escenas y generar los multipasses para la composición de todos los visualizers del disco.",
+    "status": "INDUSTRIA MUSICAL",
+    "tech": ["3D Lighting", "Render Optimization", "Cinema 4D", "Redshift"],
+    "media": [
+      { "type": "video", "url": "https://www.youtube.com/embed/videoseries?list=PLS052p25_5nryScSp5RzAPlGo56Iu1gFP", "orientation": "horizontal" }
+    ]
+  },
+  {
+    "id": "ranch_app",
+    "title": "RANCH - Motion Explicativo",
+    "category": "MOTION",
+    "description": "Video explicativo animado para una aplicación móvil.",
+    "longDescription": "El objetivo fue comunicar las funcionalidades de la aplicación Ranch de una manera clara y atractiva. Mi responsabilidad fue total sobre la pieza, desde el diseño gráfico hasta la animación final.",
+    "status": "CLIENTE CORPORATIVO",
+    "tech": ["After Effects", "Illustrator", "Diseño Gráfico"],
+    "media": [
+       { "type": "image", "url": "image_594dda.png", "orientation": "horizontal" }
+    ]
+  },
+  {
+    "id": "mir_nicolas_ciudad_pop",
+    "title": "Mir Nicolas - La Ciudad del Pop",
+    "category": "VFX",
+    "description": "Visuales de show y post-producción.",
+    "longDescription": "Desarrollo de visuales para el show en vivo, combinando técnicas de VFX y edición para crear una experiencia inmersiva que acompañe la música del artista.",
+    "status": "VISUALES DE SHOW",
+    "tech": ["After Effects", "VFX", "Edición"],
+    "media": [
+      { "type": "image", "url": "/img/aob.png", "orientation": "horizontal" }
+    ]
+  },
+  {
+    "id": "kany_garcia",
+    "title": "Kany Garcia - Visuales de Show",
+    "category": "3D",
+    "description": "Visuales para show en vivo realizadas con Unreal Engine.",
+    "longDescription": "Creación de entornos y animaciones en tiempo real utilizando Unreal Engine para las visuales del tour de Kany Garcia. Un proyecto que explora nuevas tecnologías para experiencias en vivo.",
+    "status": "REALTIME 3D",
+    "tech": ["Unreal Engine", "Realtime Graphics", "3D"],
+    "media": [
+       { "type": "image", "url": "https://i.ytimg.com/vi/TUPS-L9-V-E/maxresdefault.jpg", "orientation": "horizontal" }
     ]
   }
 ]
