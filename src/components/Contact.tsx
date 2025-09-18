@@ -3,7 +3,7 @@ import { Mail, MessageSquare, MapPin, Send, Terminal } from 'lucide-react';
 
 const Contact = () => {
   const contactInfo = [
-    { icon: Mail, title: 'EMAIL', content: 'contacto@valerstudio.com.ar', link: 'mailto:valentinmarey@gmail.com', color: 'text-cyan-400'},
+    { icon: Mail, title: 'EMAIL', content: 'contacto@valer.com.ar', link: 'mailto:valentinmarey@gmail.com', color: 'text-cyan-400'},
     { icon: MessageSquare, title: 'WHATSAPP', content: '+54 11 5095-1458', link: 'https://wa.me/5491150951458', color: 'text-red-400'},
     { icon: MapPin, title: 'UBICACION', content: 'Buenos Aires, AR', link: null, color: 'text-yellow-400'}
   ];
@@ -17,10 +17,10 @@ const Contact = () => {
             VAMOS A CREAR ALGO GRANDE
           </div>
           <h2 className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tighter">
-            <span className="text-green-400">[</span>CONTACTO<span className="text-green-400">]</span>
+            <span className="text-green-400">[</span>HABLEMOS<span className="text-green-400">]</span>
           </h2>
           <p className="text-lg text-gray-400 max-w-3xl mx-auto font-mono">
-            <span className="text-green-400">&gt;</span> ¿Tenés una idea o un proyecto en mente? Hablemos y hagámoslo realidad.
+            <span className="text-green-400">&gt;</span> ¿Tenés una idea o un proyecto en mente? Contame y hagámoslo realidad.
           </p>
         </div>
         <div className="grid lg:grid-cols-2 gap-12">

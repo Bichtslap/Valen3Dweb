@@ -1,46 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import { Terminal, Eye } from 'lucide-react';
-import { collection, onSnapshot, Firestore } from "firebase/firestore";
 
 interface PortfolioProps {
   onProjectSelect: (project: any) => void;
-  db: Firestore | null;
 }
 
-const Portfolio: React.FC<PortfolioProps> = ({ onProjectSelect, db }) => {
+const Portfolio: React.FC<PortfolioProps> = ({ onProjectSelect }) => {
   const [activeFilter, setActiveFilter] = useState('ALL');
   const [projects, setProjects] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (!db) {
-      setLoading(false);
-      console.log("Firestore DB not available yet.");
-      return;
-    }
+    const fetchProjects = async () => {
+      try {
+        const response = await fetch('/projects.json');
+        const data = await response.json();
+        setProjects(data);
+      } catch (error) {
+        console.error("Error fetching local projects:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchProjects();
+  }, []);
 
-    setLoading(true);
-    // This special variable is provided by the environment.
-    const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-    
-    // Path to the public collection for your projects
-    const projectsCollectionRef = collection(db, `/artifacts/${appId}/public/data/projects`);
-    
-    const unsubscribe = onSnapshot(projectsCollectionRef, (snapshot) => {
-      const projectsData = snapshot.docs.map(doc => ({ ...doc.data(), id: doc.id }));
-      // You might want to sort by a timestamp field here if you add one
-      setProjects(projectsData);
-      setLoading(false);
-    }, (error) => {
-      console.error("Error fetching projects from Firestore:", error);
-      setLoading(false);
-    });
-
-    // Cleanup subscription on component unmount
-    return () => unsubscribe();
-  }, [db]); // Re-run effect if the db instance changes
-
-  const filters = ['ALL', '3D', 'VFX', 'MOTION'];
+  const filters = ['ALL', 'VFX', '3D', 'MOTION'];
   const filteredProjects = activeFilter === 'ALL' ? projects : projects.filter(p => p.category === activeFilter);
 
   return (
@@ -52,10 +37,10 @@ const Portfolio: React.FC<PortfolioProps> = ({ onProjectSelect, db }) => {
             ~/portfolio/showcase
           </div>
           <h2 className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tighter">
-            <span className="text-yellow-400">[</span>PROYECTOS<span className="text-yellow-400">]</span>
+            <span className="text-yellow-400">[</span>MIS_PROYECTOS<span className="text-yellow-400">]</span>
           </h2>
           <p className="text-lg text-gray-400 max-w-3xl mx-auto font-mono mb-8">
-            <span className="text-yellow-400">&gt;</span> Proyectos que sobrevivieron las guerras del render.
+            <span className="text-yellow-400">&gt;</span> Un recorrido por mi trabajo en VFX, 3D y Motion Graphics.
           </p>
           <div className="flex flex-wrap justify-center gap-4 mb-12">
             {filters.map((filter) => (
@@ -74,8 +59,8 @@ const Portfolio: React.FC<PortfolioProps> = ({ onProjectSelect, db }) => {
           </div>
         </div>
 
-        {loading ? (<div className="text-center text-cyan-400 font-mono">Cargando proyectos desde la nube...</div>) : (
-          <div className="grid lg:grid-cols-3 gap-8">
+        {loading ? (<div className="text-center text-cyan-400 font-mono">Cargando proyectos...</div>) : (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredProjects.map((project) => (
               <div
                 key={project.id}
@@ -88,10 +73,10 @@ const Portfolio: React.FC<PortfolioProps> = ({ onProjectSelect, db }) => {
                   <div className="absolute top-4 right-4 px-3 py-1 bg-black/80 border border-gray-700 font-mono text-xs text-green-400 rounded-md">
                     {project.status}
                   </div>
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="bg-cyan-400 text-black p-4 flex items-center font-mono font-bold rounded-lg">
                       <Eye className="w-5 h-5 mr-2" />
-                      VER DETALLES
+                      VER PROYECTO
                     </div>
                   </div>
                 </div>
@@ -100,6 +85,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ onProjectSelect, db }) => {
                     //{project.category}
                   </div>
                   <h3 className="text-xl font-black text-white mt-3 mb-3 font-mono tracking-wider">{project.title}</h3>
+                  <p className="text-gray-400 font-mono text-sm">{project.description}</p>
                 </div>
               </div>
             ))}
