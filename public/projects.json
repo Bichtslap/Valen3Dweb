@@ -6,9 +6,18 @@
     "description": "Dirección Visual Integral y 3D/VFX para la apertura de su show.",
     "longDescription": "El desafío fue crear una introducción de alto impacto para el show de Nicki. Mi rol, de la mano de la directora Jess Praznik, fue la dirección visual integral de la pieza, encargándome de la conceptualización, 3D, VFX y composición final.",
     "status": "DIRECCIÓN VISUAL",
-    "tech": ["Dirección Creativa", "Cinema 4D", "After Effects", "Nuke"],
+    "tech": [
+      "Dirección Creativa",
+      "Cinema 4D",
+      "After Effects",
+      "Nuke"
+    ],
     "media": [
-      { "type": "video", "url": "https://player.vimeo.com/video/902235951?h=be1331a89d", "orientation": "horizontal" }
+      {
+        "type": "video",
+        "url": "https://player.vimeo.com/video/902235951?h=be1331a89d",
+        "orientation": "horizontal"
+      }
     ]
   },
   {
@@ -18,9 +27,22 @@
     "description": "Parte del equipo de Composición de Efectos Visuales para la serie de Netflix.",
     "longDescription": "Como parte del equipo de composición de VFX en Control VFX, mi tarea fue asegurar la integración perfecta de efectos visuales en múltiples planos de la serie, trabajando con los más altos estándares de la industria.",
     "status": "PRODUCCIÓN INTERNACIONAL",
-    "tech": ["Nuke", "Composición Digital", "VFX"],
+    "tech": [
+      "Nuke",
+      "Composición Digital",
+      "VFX"
+    ],
     "media": [
-      { "type": "image", "url": "https://www.revistadeartes.com.ar/wp-content/uploads/2023/05/Eternauta-OK.jpg", "orientation": "horizontal" }
+      {
+        "type": "video",
+        "url": "https://player.vimeo.com/video/1094506992?badge=0&amp",
+        "orientation": "horizontal"
+      },
+      {
+        "type": "video",
+        "url": "https://www.youtube.com/embed/Sl5NAM8Dr3w",
+        "orientation": "horizontal"
+      }
     ]
   },
   {
@@ -30,9 +52,17 @@
     "description": "Parte del equipo de composición de VFX en el videoclip oficial.",
     "longDescription": "Formé parte del equipo de composición de VFX para el videoclip, realizando tareas de recorte de personaje (chroma key), integración de fondos 3D y animación de elementos. Créditos: Dirección @julitaconde, Producción @anestesia.av, Jefe de VFX @nic0martins.",
     "status": "INDUSTRIA MUSICAL",
-    "tech": ["Nuke", "After Effects", "Composición VFX"],
+    "tech": [
+      "Nuke",
+      "After Effects",
+      "Composición VFX"
+    ],
     "media": [
-      { "type": "video", "url": "https://www.youtube.com/embed/N0SaRhYL7ds", "orientation": "horizontal" }
+      {
+        "type": "video",
+        "url": "https://www.youtube.com/embed/N0SaRhYL7ds",
+        "orientation": "horizontal"
+      }
     ]
   },
   {
@@ -42,21 +72,37 @@
     "description": "Co-Dirección Creativa y Motion Graphics para la campaña visual del álbum.",
     "longDescription": "Junto al equipo, mi rol fue definir la línea visual y ejecutar gran parte de las piezas de motion graphics que acompañaron el lanzamiento del álbum, creando un universo visual coherente y potente.",
     "status": "DIRECCIÓN CREATIVA",
-    "tech": ["After Effects", "Dirección de Arte", "Motion Graphics"],
+    "tech": [
+      "After Effects",
+      "Dirección de Arte",
+      "Motion Graphics"
+    ],
     "media": [
-      { "type": "video", "url": "https://player.vimeo.com/video/679906692?h=79e7c53051", "orientation": "horizontal" }
+      {
+        "type": "video",
+        "url": "https://player.vimeo.com/video/679906692?h=79e7c53051",
+        "orientation": "horizontal"
+      }
     ]
   },
-   {
+  {
     "id": "47_street",
     "title": "47 STREET - INVIERNO 2023",
     "category": "VFX",
     "description": "Composición de VFX y supervisión en set para la campaña de invierno.",
     "longDescription": "Mi participación abarcó dos áreas: la supervisión en el set de filmación para asegurar una correcta captura del material para VFX, y la posterior composición digital de múltiples planos.",
     "status": "CAMPAÑA PUBLICITARIA",
-    "tech": ["Supervisión en Set", "Composición VFX", "Nuke"],
+    "tech": [
+      "Supervisión en Set",
+      "Composición VFX",
+      "Nuke"
+    ],
     "media": [
-       { "type": "video", "url": "https://player.vimeo.com/video/804616995?h=4f32b13739", "orientation": "horizontal" }
+      {
+        "type": "video",
+        "url": "https://player.vimeo.com/video/804616995?h=4f32b13739",
+        "orientation": "horizontal"
+      }
     ]
   },
   {
@@ -66,9 +112,18 @@
     "description": "Artista 3D de Iluminación y Render para los visualizers del disco.",
     "longDescription": "Participé como 3D Lighting & Rendering Artist para la productora BM Studio, donde mi trabajo fue iluminar, optimizar escenas y generar los multipasses para la composición de todos los visualizers del disco.",
     "status": "INDUSTRIA MUSICAL",
-    "tech": ["3D Lighting", "Render Optimization", "Cinema 4D", "Redshift"],
+    "tech": [
+      "3D Lighting",
+      "Render Optimization",
+      "Cinema 4D",
+      "Redshift"
+    ],
     "media": [
-      { "type": "video", "url": "https://www.youtube.com/embed/videoseries?list=PLS052p25_5nryScSp5RzAPlGo56Iu1gFP", "orientation": "horizontal" }
+      {
+        "type": "video",
+        "url": "https://www.youtube.com/embed/videoseries?list=PLS052p25_5nryScSp5RzAPlGo56Iu1gFP",
+        "orientation": "horizontal"
+      }
     ]
   },
   {
@@ -76,11 +131,24 @@
     "title": "RANCH - Motion Explicativo",
     "category": "MOTION",
     "description": "Video explicativo animado para una aplicación móvil.",
-    "longDescription": "El objetivo fue comunicar las funcionalidades de la aplicación Ranch de una manera clara y atractiva. Mi responsabilidad fue total sobre la pieza, desde el diseño gráfico hasta la animación final.",
+    "longDescription": "El objetivo fue comunicar las funcionalidades de la aplicación Ranch de una manera clara y atractiva. Mi responsabilidad fue definir las animaciones de cada pantalla de la mano del diseñador y el cliente del equipo de la marca.",
     "status": "CLIENTE CORPORATIVO",
-    "tech": ["After Effects", "Illustrator", "Diseño Gráfico"],
+    "tech": [
+      "After Effects",
+      "Illustrator",
+      "Diseño Gráfico"
+    ],
     "media": [
-       { "type": "image", "url": "image_594dda.png", "orientation": "horizontal" }
+      {
+        "type": "video",
+        "url": "https://vimeo.com/1094506992",
+        "orientation": "horizontal"
+      },
+      {
+        "type": "video",
+        "url": "https://vimeo.com/1094506992",
+        "orientation": "horizontal"
+      }
     ]
   },
   {
@@ -90,9 +158,17 @@
     "description": "Visuales de show y post-producción.",
     "longDescription": "Desarrollo de visuales para el show en vivo, combinando técnicas de VFX y edición para crear una experiencia inmersiva que acompañe la música del artista.",
     "status": "VISUALES DE SHOW",
-    "tech": ["After Effects", "VFX", "Edición"],
+    "tech": [
+      "After Effects",
+      "VFX",
+      "Edición"
+    ],
     "media": [
-      { "type": "image", "url": "/img/aob.png", "orientation": "horizontal" }
+      {
+        "type": "image",
+        "url": "/img/aob.png",
+        "orientation": "horizontal"
+      }
     ]
   },
   {
@@ -102,9 +178,17 @@
     "description": "Visuales para show en vivo realizadas con Unreal Engine.",
     "longDescription": "Creación de entornos y animaciones en tiempo real utilizando Unreal Engine para las visuales del tour de Kany Garcia. Un proyecto que explora nuevas tecnologías para experiencias en vivo.",
     "status": "REALTIME 3D",
-    "tech": ["Unreal Engine", "Realtime Graphics", "3D"],
+    "tech": [
+      "Unreal Engine",
+      "Realtime Graphics",
+      "3D"
+    ],
     "media": [
-       { "type": "image", "url": "https://i.ytimg.com/vi/TUPS-L9-V-E/maxresdefault.jpg", "orientation": "horizontal" }
+      {
+        "type": "image",
+        "url": "https://i.ytimg.com/vi/TUPS-L9-V-E/maxresdefault.jpg",
+        "orientation": "horizontal"
+      }
     ]
   }
 ]
