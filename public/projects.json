@@ -1,11 +1,71 @@
 [
   {
+    "id": "proj_1759541669585",
+    "title": "Rauw Alejandro x Crocs – CGI",
+    "thumbnailUrl": "/IMG/crocs.png",
+    "previewVideo": "/vid/croc/preview.mp4",
+    "category": "3D",
+    "status": "PUBLICIDAD DIGITAL",
+    "description": "3D Artist Croc x Rauw Alejandro",
+    "longDescription": "📽️ Dirección: Martin Seipel\n🎨 VFX: Paula Braga Menéndez\n🛠️ 3D: Valen.3D\n👟 Cliente: Crocs\nPara este proyecto trabajé en el área de 3D, tomando una escena previamente iniciada por otro artista y llevando a cabo ajustes clave para su versión final. Mis aportes incluyeron:\n✅ Edición y animación de cámara para mejorar la composición y fluidez de la escena.\n✅ Configuración de iluminación y shading, asegurando un look coherente con el concepto visual.\n✅ Render passes optimizados para facilitar la integración en postproducción.\n✅ Composición de la escenografía, agregando árboles y ajustando elementos del entorno digital.\nGracias a este trabajo en conjunto, logramos una integración fluida y un acabado visual alineado con la visión del director y la identidad del proyecto.",
+    "tech": [
+      "Blender",
+      "Nuke",
+      "Multipass",
+      "3D Artist",
+      "Lighting",
+      "Animation"
+    ],
+    "media": [
+      {
+        "url": "https://www.youtube.com/embed/5zpYEeFPwjM",
+        "type": "video",
+        "orientation": "horizontal"
+      },
+      {
+        "url": "https://player.vimeo.com/video/1105988831?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
+        "type": "video",
+        "orientation": "horizontal"
+      }
+    ]
+  },
+  {
+    "id": "proj_1759525955553",
+    "title": "Usted Señalemelo - Show Visuals",
+    "thumbnailUrl": "/IMG/USDN.png",
+    "previewVideo": "/vid/usdn/preview.mp4",
+    "category": "MOTION",
+    "status": "VISUALES DE SHOW",
+    "description": "Motion Graphics de genéricos y visual 3D para los shows de Usted Señalemelo.",
+    "longDescription": "Desarrollo de Motion Graphics para los genéricos de los shows de Usted Señalemelo como tambien para los visuales especificos de cada track para el show de si gira TRIPOLAR, trabajando sobre la base del branding generado por Pogo Creative Co. Además, incluyó el diseño y la animación 3D del visual para la canción 'Pastizal' utilizando Blender. El trabajo lo realice bajo la direccion y operacion de VJ de Lucas Vignale.",
+    "tech": [
+      "After Effects",
+      "Blender",
+      "Motion Graphics",
+      "3D"
+    ],
+    "media": [
+      {
+        "url": "https://www.youtube.com/embed/gVygL9M2cL0",
+        "type": "video",
+        "orientation": "horizontal"
+      },
+      {
+        "url": "https://www.youtube.com/embed/3kMERQJOikk",
+        "type": "video",
+        "orientation": "horizontal"
+      }
+    ]
+  },
+  {
     "id": "nicki_nicole",
     "title": "NICKI NICOLE - SHOW INTRO",
+    "thumbnailUrl": "/IMG/nicole.jpg",
+    "previewVideo": "/vid/nicki/preview.mp4",
     "category": "VFX",
+    "status": "DIRECCIÓN VISUAL",
     "description": "Dirección Visual Integral y 3D/VFX para la apertura de su show.",
     "longDescription": "El desafío fue crear una introducción de alto impacto para el show de Nicki. Mi rol, de la mano de la directora Jess Praznik, fue la dirección visual integral de la pieza, encargándome de la conceptualización, 3D, VFX y composición final.",
-    "status": "DIRECCIÓN VISUAL",
     "tech": [
       "Dirección Creativa",
       "Cinema 4D",
@@ -14,8 +74,13 @@
     ],
     "media": [
       {
+        "url": "https://www.youtube.com/embed/Zv23OQ_Y3BY",
         "type": "video",
-        "url": "https://player.vimeo.com/video/902235951?h=be1331a89d",
+        "orientation": "horizontal"
+      },
+      {
+        "url": "https://player.vimeo.com/video/1124706337?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479\" frameborder=\"0\" allow=\"autoplay;",
+        "type": "video",
         "orientation": "horizontal"
       }
     ]
@@ -23,10 +88,12 @@
   {
     "id": "el_eternauta",
     "title": "El Eternauta (Netflix)",
+    "thumbnailUrl": "https://occ-0-8407-2218.1.nflxso.net/dnm/api/v6/E8vDc_W8CLv7-yMQu8KMEC7Rrr8/AAAABS1UW-PMWLEMh7CEWHq-QTeaXvj7932GaSKt0-IxyCcRZRl2f5L9ENm0HyYBrkhEZ8weWeYtkcH5pnzr-K5ai5-ncH3Dg-Cv55Ro.jpg?r=508",
+    "previewVideo": "/vid/eternauta/preview.mp4",
     "category": "VFX",
-    "description": "Parte del equipo de Composición de Efectos Visuales para la serie de Netflix.",
-    "longDescription": "Como parte del equipo de composición de VFX en Control VFX, mi tarea fue asegurar la integración perfecta de efectos visuales en múltiples planos de la serie, trabajando con los más altos estándares de la industria.",
     "status": "PRODUCCIÓN INTERNACIONAL",
+    "description": "Parte del equipo de Composición de Efectos Visuales para la serie de Netflix.",
+    "longDescription": "Tuve la oportunidad de colaborar por 3 meses con el equipo de composición de VFX en Control VFX, trabajando específicamente en los capítulos 3, 4 y 5 de la serie. Con la coordinación de Nicolas Gonzales, me especialicé en la composición y el agregado de nieves remplazo de fondos de UE y compos iniciales en After Effects y Nuke. Estoy agradecido con Lola de La fuente Goldman por haberme recomendado para este proyecto y por aprender con ella, donde contribuí a mantener los altos estándares de calidad en la integración de efectos visuales con todo el equipo. ",
     "tech": [
       "Nuke",
       "Composición Digital",
@@ -34,13 +101,13 @@
     ],
     "media": [
       {
+        "url": "https://player.vimeo.com/video/1094506992?badge=0&",
         "type": "video",
-        "url": "https://player.vimeo.com/video/1094506992?badge=0&amp",
         "orientation": "horizontal"
       },
       {
-        "type": "video",
         "url": "https://www.youtube.com/embed/Sl5NAM8Dr3w",
+        "type": "video",
         "orientation": "horizontal"
       }
     ]
@@ -48,10 +115,12 @@
   {
     "id": "emilia_facts",
     "title": "EMILIA - FACTS",
+    "thumbnailUrl": "https://i.ytimg.com/vi/N0SaRhYL7ds/maxresdefault.jpg",
+    "previewVideo": "/vid/emilia/preview.mp4",
     "category": "VFX",
+    "status": "INDUSTRIA MUSICAL",
     "description": "Parte del equipo de composición de VFX en el videoclip oficial.",
     "longDescription": "Formé parte del equipo de composición de VFX para el videoclip, realizando tareas de recorte de personaje (chroma key), integración de fondos 3D y animación de elementos. Créditos: Dirección @julitaconde, Producción @anestesia.av, Jefe de VFX @nic0martins.",
-    "status": "INDUSTRIA MUSICAL",
     "tech": [
       "Nuke",
       "After Effects",
@@ -59,8 +128,8 @@
     ],
     "media": [
       {
-        "type": "video",
         "url": "https://www.youtube.com/embed/N0SaRhYL7ds",
+        "type": "video",
         "orientation": "horizontal"
       }
     ]
@@ -68,19 +137,26 @@
   {
     "id": "duki",
     "title": "DUKI - Temporada de Reggaetón",
+    "thumbnailUrl": "/IMG/duki_temporada_re.jpg",
+    "previewVideo": "/vid/duki/preview.mp4",
     "category": "MOTION",
-    "description": "Co-Dirección Creativa y Motion Graphics para la campaña visual del álbum.",
-    "longDescription": "Junto al equipo, mi rol fue definir la línea visual y ejecutar gran parte de las piezas de motion graphics que acompañaron el lanzamiento del álbum, creando un universo visual coherente y potente.",
     "status": "DIRECCIÓN CREATIVA",
+    "description": "Co-Dirección Creativa y Motion Graphics para la campaña visual del álbum.",
+    "longDescription": "Junto al equipo, mi rol fue definir las animaciones y ejecutar las piezas de motion graphics que acompañaron el lanzamiento del álbum en un tiempo record de 1 semana y media mano a mano con matu santamria el diseñador, creando un universo visual coherente y potente. En el cual entregue los visualizer ademas de piezas animadas para Spotify Canvas, redes sociales y Adaptaciones de Graficas para otras plataformas",
     "tech": [
       "After Effects",
-      "Dirección de Arte",
+      "Diseño Grafico",
       "Motion Graphics"
     ],
     "media": [
       {
+        "url": "https://www.youtube.com/embed/V__VGHK5ll4?list=OLAK5uy_lpRUdMMxDkfNdXxRfd0ogJ85N2EQqzKO0",
         "type": "video",
-        "url": "https://player.vimeo.com/video/679906692?h=79e7c53051",
+        "orientation": "horizontal"
+      },
+      {
+        "url": "https://www.youtube.com/embed/wMwbkYGpSYU",
+        "type": "video",
         "orientation": "horizontal"
       }
     ]
@@ -88,19 +164,32 @@
   {
     "id": "47_street",
     "title": "47 STREET - INVIERNO 2023",
+    "thumbnailUrl": "/IMG/47.jpg",
+    "previewVideo": "/vid/47street/preview.mp4",
     "category": "VFX",
-    "description": "Composición de VFX y supervisión en set para la campaña de invierno.",
-    "longDescription": "Mi participación abarcó dos áreas: la supervisión en el set de filmación para asegurar una correcta captura del material para VFX, y la posterior composición digital de múltiples planos.",
     "status": "CAMPAÑA PUBLICITARIA",
+    "description": "Composición de VFX y supervisión en set para la campaña de invierno.",
+    "longDescription": "Mi rol en este proyecto tuvo un doble enfoque:\n🎬 Supervisión en Set: Estuve presente en el rodaje para garantizar la calidad y precisión del material destinado a VFX.\n✨ Composición Digital: Ya en post-producción, me encargué de la integración y composición de múltiples planos para lograr el resultado final.\n\nEQUIPAZO:\nCreative Direction: @duoido @evyvinaccia\nArt Direction: @duoido\nCGI: @hayabusa.a @vicampobello\nVFX: @valen.3d\nPhotography: @xrsnkx\nFilm: @chescohome\nStyling: @thisisjla @octavioferrero\nColor: @_rafacasares",
     "tech": [
       "Supervisión en Set",
       "Composición VFX",
-      "Nuke"
+      "Nuke",
+      "After Effects"
     ],
     "media": [
       {
+        "url": "https://www.youtube.com/embed/u1kHECJBQpc",
         "type": "video",
-        "url": "https://player.vimeo.com/video/804616995?h=4f32b13739",
+        "orientation": "horizontal"
+      },
+      {
+        "url": "https://www.youtube.com/embed/UcllLMiCrHc",
+        "type": "video",
+        "orientation": "horizontal"
+      },
+      {
+        "url": "",
+        "type": "image",
         "orientation": "horizontal"
       }
     ]
@@ -108,10 +197,12 @@
   {
     "id": "paloma_mami",
     "title": "Paloma Mami - Códigos de Muñeca",
+    "thumbnailUrl": "/IMG/paloma.jpg",
+    "previewVideo": "/vid/paloma_mami/preview.mp4",
     "category": "3D",
-    "description": "Artista 3D de Iluminación y Render para los visualizers del disco.",
-    "longDescription": "Participé como 3D Lighting & Rendering Artist para la productora BM Studio, donde mi trabajo fue iluminar, optimizar escenas y generar los multipasses para la composición de todos los visualizers del disco.",
     "status": "INDUSTRIA MUSICAL",
+    "description": "Artista 3D de Iluminación y Render para los visualizers del disco.",
+    "longDescription": "Participé como 3D Lighting & Rendering Artist para la productora BM Studio, donde mi trabajo fue iluminar, optimizar escenas y generar los multipasses para la composición de todos los visualizers del disco.\n",
     "tech": [
       "3D Lighting",
       "Render Optimization",
@@ -120,8 +211,13 @@
     ],
     "media": [
       {
-        "type": "video",
         "url": "https://www.youtube.com/embed/videoseries?list=PLS052p25_5nryScSp5RzAPlGo56Iu1gFP",
+        "type": "video",
+        "orientation": "horizontal"
+      },
+      {
+        "url": "https://www.youtube.com/embed/21Q4zYysrIM",
+        "type": "image",
         "orientation": "horizontal"
       }
     ]
@@ -138,12 +234,9 @@
       "Illustrator",
       "Diseño Gráfico"
     ],
+    "thumbnailUrl": "/IMG/ranch_app_thumb.jpg",
+    "previewVideo": "/vid/ranch_app/preview.mp4",
     "media": [
-      {
-        "type": "video",
-        "url": "https://vimeo.com/1094506992",
-        "orientation": "horizontal"
-      },
       {
         "type": "video",
         "url": "https://vimeo.com/1094506992",
@@ -163,10 +256,11 @@
       "VFX",
       "Edición"
     ],
+    "thumbnailUrl": "/IMG/aob.png",
     "media": [
       {
         "type": "image",
-        "url": "/img/aob.png",
+        "url": "/IMG/aob.png",
         "orientation": "horizontal"
       }
     ]
@@ -183,6 +277,7 @@
       "Realtime Graphics",
       "3D"
     ],
+    "thumbnailUrl": "https://i.ytimg.com/vi/TUPS-L9-V-E/maxresdefault.jpg",
     "media": [
       {
         "type": "image",

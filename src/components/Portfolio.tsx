@@ -31,6 +31,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ onProjectSelect }) => {
   return (
     <section id="work" className="py-20 bg-gray-950 relative">
       <div className="container mx-auto px-6 relative z-10">
+        {/* ... El código del encabezado y filtros no cambia ... */}
         <div className="text-center mb-16">
           <div className="text-cyan-400 font-mono text-sm mb-4">
             <Terminal className="inline w-4 h-4 mr-2" />
@@ -68,7 +69,26 @@ const Portfolio: React.FC<PortfolioProps> = ({ onProjectSelect }) => {
                 onClick={() => onProjectSelect(project)}
               >
                 <div className="relative overflow-hidden aspect-video bg-black rounded-t-2xl">
-                  <img src={project.media[0]?.url} alt={project.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"/>
+                  
+                  {/* La imagen de fondo, ahora usa thumbnailUrl */}
+                  <img 
+                    src={project.thumbnailUrl || project.media[0]?.url} // Usa thumbnailUrl, y si no existe, usa media[0] como antes
+                    alt={project.title} 
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
+                  />
+
+                  {/* El video superpuesto no cambia */}
+                  {project.previewVideo && (
+                    <video
+                      src={project.previewVideo}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      className="absolute inset-0 w-full h-full object-cover transition-all duration-300 opacity-0 group-hover:opacity-100 group-hover:scale-110 pointer-events-none"
+                    />
+                  )}
+
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
                   <div className="absolute top-4 right-4 px-3 py-1 bg-black/80 border border-gray-700 font-mono text-xs text-green-400 rounded-md">
                     {project.status}

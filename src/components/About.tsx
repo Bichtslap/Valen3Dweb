@@ -29,7 +29,7 @@ const About = () => {
                 <span className="text-cyan-400">&gt;</span> Soy Valentín Marey, el artista visual y 3D detrás de Valer Studios. Cansado de la ineficiencia de las grandes agencias, fundé el estudio con un principio simple: <strong className="text-white">resultados de nivel internacional, sin la burocracia.</strong>
             </p>
             <p>
-                <span className="text-cyan-400">&gt;</span> Me especializo en contenido de alto impacto para la industria musical y publicitaria, y he tenido el privilegio de colaborar en proyectos para <strong className="text-white">Netflix, Duki y Nicki Nicole.</strong> Mi enfoque es simple: combinar destreza técnica con una dirección creativa clara para entregar un resultado que supere tus expectativas.
+                <span className="text-cyan-400">&gt;</span> Me especializo en VFX, motion graphics y como 3D Artist , principalmente para la industria musical, campañas publicitarias y brodcasting. He tenido el privilegio de colaborar en proyectos para <strong className="text-white">Netflix, Duki y Rauw Alejandro.</strong> Para tu proyecto, combino mi destreza técnica con una dirección creativa clara. El resultado? Una pieza final que no solo cumple, sino que eleva tu marca y supera tus expectativas.
             </p>
           </div>
         </div>

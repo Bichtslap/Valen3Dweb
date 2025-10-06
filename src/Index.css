@@ -148,6 +148,7 @@
 .popup-content-grid.is-horizontal {
   grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); /* Columnas flexibles y seguras */
   max-width: 1400px;
+  align-items: center;
 }
 .popup-content-grid.is-horizontal .popup-media-area {
   aspect-ratio: 16 / 9;
@@ -158,6 +159,7 @@
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   max-width: 1300px;
   max-height: 85vh;
+  align-items: center;
 }
 .popup-content-grid.is-square .popup-media-area {
   aspect-ratio: 1 / 1;
@@ -168,6 +170,7 @@
   /* CAMBIO: Ahora son filas en vez de columnas */
   grid-template-rows: auto minmax(0, 1fr); /* La imagen toma su espacio, el texto el resto */
   max-width: 500px; /* Un poco más angosto para estética vertical */
+  align-items: center;
 }
 /* YA NO NECESITAMOS LA REGLA QUE LIMITABA LA ALTURA DEL TEXTO */
 

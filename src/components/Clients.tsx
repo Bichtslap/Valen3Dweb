@@ -30,7 +30,7 @@ const Clients = () => {
             ~/social-proof
           </div>
           <h2 className="text-3xl md:text-4xl font-black text-white mb-6 tracking-tighter">
-            Marcas y artistas que confiaron en mi trabajo
+            Algunas marcas y artistas con los que he colaborado
           </h2>
         </div>
       </div>

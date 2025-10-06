@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editor de Proyectos - Valer Studio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+  <style>
+    body { background-color: #111827; color: #d1d5db; scroll-behavior: smooth; }
+    input, select, textarea { background-color: #1f2937; border-color: #4b5563; }
+    input:focus, select:focus, textarea:focus { border-color: #00ffff; outline: none; box-shadow: none; ring: 0; }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #1f2937; }
+    ::-webkit-scrollbar-thumb { background: #00ffff; }
+    .drag-handle { cursor: grab; }
+    .drag-handle:active { cursor: grabbing; }
+    .sortable-ghost { opacity: 0.4; background-color: #00ffff20; border: 1px dashed #00ffff; }
+  </style>
+</head>
+<body class="p-4 md:p-8 font-mono">
+  <div id="app" class="max-w-7xl mx-auto">
+    <h1 class="text-3xl font-bold text-cyan-400 mb-2">[ Editor de Proyectos ]</h1>
+    <p class="mb-8 text-gray-400">Desde acá podés agregar, editar y reordenar los proyectos de tu portfolio.</p>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div class="lg:col-span-1">
+        <form id="project-form" class="bg-gray-800 p-6 rounded-lg space-y-4 sticky top-8">
+          <h2 id="form-title" class="text-2xl font-bold text-yellow-400">Agregar Proyecto</h2>
+          <input type="hidden" id="project-id">
+          
+          <div><label class="text-sm text-gray-400">Título</label><input required id="title" class="w-full p-2 rounded border"></div>
+          <div><label class="text-sm text-gray-400">Thumbnail URL</label><input required id="thumbnailUrl" class="w-full p-2 rounded border" placeholder="/IMG/thumb.jpg o https://..."></div>
+          <div><label class="text-sm text-gray-400">Preview Video URL (opcional)</label><input id="previewVideo" class="w-full p-2 rounded border" placeholder="/vid/proyecto/preview.mp4"></div>
+          <div class="flex gap-4">
+            <div class="flex-1"><label class="text-sm text-gray-400">Categoría</label><select required id="category" class="w-full p-2 rounded border"><option value="VFX">VFX</option><option value="3D">3D</option><option value="MOTION">MOTION</option></select></div>
+            <div class="flex-1"><label class="text-sm text-gray-400">Status</label><input id="status" class="w-full p-2 rounded border" placeholder="DIRECCIÓN VISUAL"></div>
+          </div>
+          <div><label class="text-sm text-gray-400">Descripción Corta</label><textarea required id="description" class="w-full p-2 rounded border h-20"></textarea></div>
+          <div><label class="text-sm text-gray-400">Descripción Larga</label><textarea id="longDescription" class="w-full p-2 rounded border h-32"></textarea></div>
+          <div><label class="text-sm text-gray-400">Tecnologías (separadas por coma)</label><input id="tech" class="w-full p-2 rounded border" placeholder="After Effects, Blender, ..."></div>
+          
+          <div class="border-t border-gray-700 pt-4">
+            <h3 class="text-lg font-bold text-cyan-400 mb-2">Media del Pop-up</h3>
+            <div id="media-list" class="space-y-3"></div>
+            <button type="button" id="add-media-btn" class="mt-3 text-sm bg-cyan-500/20 text-cyan-300 w-full py-2 rounded hover:bg-cyan-500/40">Añadir Media</button>
+          </div>
+
+          <div class="pt-4 flex gap-4">
+            <button type="submit" class="w-full bg-cyan-500 text-black font-bold py-2 rounded">Guardar Proyecto</button>
+            <button type="button" id="clear-form-btn" class="w-full bg-gray-600 text-white font-bold py-2 rounded">Limpiar</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="lg:col-span-2">
+        <div class="flex justify-between items-center mb-4">
+          <h2 class="text-xl font-bold text-gray-300">Proyectos Actuales</h2>
+          <button id="save-all-btn" class="bg-green-600 text-white font-bold py-2 px-4 rounded hover:bg-green-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed" disabled>Guardar Cambios</button>
+        </div>
+        <div id="projects-list" class="space-y-4"></div>
+      </div>
+    </div>
+
+    <script>
+      const API_URL = 'http://localhost:3001/api/projects';
+      
+      const form = document.getElementById('project-form');
+      const formTitle = document.getElementById('form-title');
+      const projectsList = document.getElementById('projects-list');
+      const clearFormBtn = document.getElementById('clear-form-btn');
+      const saveAllBtn = document.getElementById('save-all-btn');
+      const mediaList = document.getElementById('media-list');
+      const addMediaBtn = document.getElementById('add-media-btn');
+
+      let allProjects = [];
+      let sortableProjects = null;
+      let sortableMedia = null;
+      let currentMediaItems = [];
+
+      function markUnsavedChanges() {
+        saveAllBtn.disabled = false;
+        saveAllBtn.textContent = 'Guardar Cambios*';
+      }
+
+      async function loadProjects() {
+        try {
+          const response = await fetch(API_URL);
+          allProjects = await response.json();
+          renderProjects();
+        } catch (error) {
+          alert('Error: No se pudo conectar con el servidor del editor. ¿Lo tenés corriendo? (node server.js)');
+        }
+      }
+
+      function renderProjects() {
+        projectsList.innerHTML = '';
+        allProjects.forEach((p, index) => {
+          const projectEl = document.createElement('div');
+          projectEl.className = 'bg-gray-800 p-4 rounded-lg flex items-center gap-4';
+          projectEl.dataset.id = p.id;
+          projectEl.innerHTML = `
+            <div class="drag-handle text-gray-500 hover:text-white p-2">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="12" r="1"/><circle cx="9" cy="5" r="1"/><circle cx="9" cy="19" r="1"/><circle cx="15" cy="12" r="1"/><circle cx="15" cy="5" r="1"/><circle cx="15" cy="19" r="1"/></svg>
+            </div>
+            <img src="${p.thumbnailUrl.startsWith('http') ? p.thumbnailUrl : `/${p.thumbnailUrl.replace(/^\//, '')}`}" class="w-24 h-16 object-cover rounded" onerror="this.style.backgroundColor='#374151'; this.src='';">
+            <div class="flex-grow"><p class="font-bold text-white">${p.title}</p><p class="text-sm text-cyan-400">${p.category}</p></div>
+            <div class="flex gap-2">
+              <button class="edit-btn bg-yellow-500 text-black px-3 py-1 rounded text-sm" data-index="${index}">Editar</button>
+              <button class="delete-btn bg-red-500 text-white px-3 py-1 rounded text-sm" data-index="${index}">Borrar</button>
+            </div>
+          `;
+          projectsList.appendChild(projectEl);
+        });
+        
+        if (sortableProjects) sortableProjects.destroy();
+        sortableProjects = new Sortable(projectsList, {
+          handle: '.drag-handle', animation: 150, ghostClass: 'sortable-ghost',
+          onEnd: (evt) => {
+            const item = allProjects.splice(evt.oldIndex, 1)[0];
+            allProjects.splice(evt.newIndex, 0, item);
+            markUnsavedChanges();
+            renderProjects();
+          }
+        });
+      }
+      
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const id = document.getElementById('project-id').value;
+        updateCurrentMediaFromDOM();
+        const projectData = {
+          id: id || `proj_${Date.now()}`,
+          title: document.getElementById('title').value,
+          thumbnailUrl: document.getElementById('thumbnailUrl').value,
+          previewVideo: document.getElementById('previewVideo').value,
+          category: document.getElementById('category').value,
+          status: document.getElementById('status').value,
+          description: document.getElementById('description').value,
+          longDescription: document.getElementById('longDescription').value,
+          tech: document.getElementById('tech').value.split(',').map(s => s.trim()).filter(Boolean),
+          media: currentMediaItems,
+        };
+        if (!projectData.previewVideo) delete projectData.previewVideo;
+        
+        if (id) {
+          const index = allProjects.findIndex(p => p.id === id);
+          if (index > -1) allProjects[index] = projectData;
+        } else {
+          allProjects.unshift(projectData);
+        }
+        
+        renderProjects();
+        clearForm();
+        markUnsavedChanges();
+      });
+      
+      saveAllBtn.addEventListener('click', async () => {
+        saveAllBtn.disabled = true;
+        saveAllBtn.textContent = 'Guardando...';
+        try {
+          const response = await fetch(API_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(allProjects)
+          });
+          if (!response.ok) throw new Error(`Falló el guardado: ${response.statusText}`);
+          alert('¡Proyectos guardados con éxito!');
+          saveAllBtn.textContent = 'Guardar Cambios';
+        } catch(e) {
+          alert(`Error al guardar: ${e.message}`);
+          saveAllBtn.textContent = 'Guardar Cambios*';
+          saveAllBtn.disabled = false;
+        }
+      });
+
+      function clearForm() {
+        form.reset();
+        document.getElementById('project-id').value = '';
+        formTitle.textContent = 'Agregar Proyecto';
+        currentMediaItems = [];
+        renderMediaItems();
+      }
+      clearFormBtn.addEventListener('click', clearForm);
+      
+      projectsList.addEventListener('click', (e) => {
+        const button = e.target.closest('button');
+        if (!button) return;
+        const index = button.dataset.index;
+        if (index === undefined) return;
+
+        if (button.classList.contains('edit-btn')) {
+          const project = allProjects[index];
+          formTitle.textContent = 'Editando Proyecto';
+          form.reset(); 
+          document.getElementById('project-id').value = project.id;
+          
+          for (const key in project) {
+            const el = document.getElementById(key);
+            if (el) {
+              el.value = (key === 'tech') ? (project[key] || []).join(', ') : project[key];
+            }
+          }
+          currentMediaItems = project.media ? [...project.media] : [];
+          renderMediaItems();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        if (button.classList.contains('delete-btn')) {
+          if (confirm('¿Seguro que querés borrar este proyecto?')) {
+            allProjects.splice(index, 1);
+            renderProjects();
+            markUnsavedChanges();
+          }
+        }
+      });
+
+      // --- LÓGICA DEL GESTOR DE MEDIA ---
+      function renderMediaItems() {
+        mediaList.innerHTML = '';
+        currentMediaItems.forEach((media, index) => {
+          const mediaEl = document.createElement('div');
+          mediaEl.className = 'bg-gray-900 p-3 rounded border border-gray-700 space-y-2';
+          mediaEl.dataset.index = index;
+          mediaEl.innerHTML = `
+            <div class="flex items-center gap-2">
+              <span class="drag-handle text-gray-500 hover:text-white p-1" style="cursor: grab;">⠿</span>
+              <input class="media-url flex-grow p-1 rounded border text-sm bg-gray-700" value="${media.url || ''}" placeholder="URL del media...">
+              <button type="button" class="remove-media-btn text-red-400 text-xs px-2 font-bold">X</button>
+            </div>
+            <div class="flex gap-2">
+              <select class="media-type p-1 rounded border text-xs flex-1 bg-gray-700">
+                <option value="image" ${media.type === 'image' ? 'selected' : ''}>Imagen</option>
+                <option value="video" ${media.type === 'video' ? 'selected' : ''}>Video</option>
+              </select>
+              <select class="media-orientation p-1 rounded border text-xs flex-1 bg-gray-700">
+                <option value="horizontal" ${media.orientation === 'horizontal' ? 'selected' : ''}>Horizontal</option>
+                <option value="vertical" ${media.orientation === 'vertical' ? 'selected' : ''}>Vertical</option>
+                <option value="square" ${media.orientation === 'square' ? 'selected' : ''}>Cuadrado</option>
+              </select>
+            </div>
+          `;
+          mediaList.appendChild(mediaEl);
+        });
+
+        if(sortableMedia) sortableMedia.destroy();
+        sortableMedia = new Sortable(mediaList, {
+          handle: '.drag-handle', animation: 150, ghostClass: 'sortable-ghost',
+          onEnd: () => {
+             updateCurrentMediaFromDOM();
+             markUnsavedChanges();
+          }
+        });
+      }
+
+      addMediaBtn.addEventListener('click', () => {
+        currentMediaItems.push({ type: 'image', url: '', orientation: 'horizontal' });
+        renderMediaItems();
+      });
+
+      mediaList.addEventListener('click', (e) => {
+        if (e.target.classList.contains('remove-media-btn')) {
+          const index = e.target.closest('[data-index]').dataset.index;
+          currentMediaItems.splice(index, 1);
+          renderMediaItems();
+          markUnsavedChanges();
+        }
+      });
+      
+      function updateCurrentMediaFromDOM() {
+        const newMediaItems = [];
+        mediaList.querySelectorAll('[data-index]').forEach(el => {
+            newMediaItems.push({
+                url: el.querySelector('.media-url').value,
+                type: el.querySelector('.media-type').value,
+                orientation: el.querySelector('.media-orientation').value,
+            });
+        });
+        currentMediaItems = newMediaItems;
+      }
+      
+      // --- INICIO ---
+      loadProjects();
+    </script>
+  </div>
+</body>
+</html>
