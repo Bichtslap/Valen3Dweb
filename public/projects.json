@@ -211,13 +211,18 @@
     ],
     "media": [
       {
-        "url": "https://www.youtube.com/embed/videoseries?list=PLS052p25_5nryScSp5RzAPlGo56Iu1gFP",
+        "url": "https://www.youtube.com/embed/WUA9udKks80",
         "type": "video",
         "orientation": "horizontal"
       },
       {
         "url": "https://www.youtube.com/embed/21Q4zYysrIM",
-        "type": "image",
+        "type": "video",
+        "orientation": "horizontal"
+      },
+      {
+        "url": "https://www.youtube.com/embed/Kqdx--Zna5I",
+        "type": "video",
         "orientation": "horizontal"
       }
     ]
@@ -225,21 +230,21 @@
   {
     "id": "ranch_app",
     "title": "RANCH - Motion Explicativo",
+    "thumbnailUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAstRtzGU9MXEmpAaLcAqUQg6neC1BVtwkgQ&s",
+    "previewVideo": "/vid/ranch_app/preview.mp4",
     "category": "MOTION",
+    "status": "CLIENTE CORPORATIVO",
     "description": "Video explicativo animado para una aplicación móvil.",
     "longDescription": "El objetivo fue comunicar las funcionalidades de la aplicación Ranch de una manera clara y atractiva. Mi responsabilidad fue definir las animaciones de cada pantalla de la mano del diseñador y el cliente del equipo de la marca.",
-    "status": "CLIENTE CORPORATIVO",
     "tech": [
       "After Effects",
       "Illustrator",
       "Diseño Gráfico"
     ],
-    "thumbnailUrl": "/IMG/ranch_app_thumb.jpg",
-    "previewVideo": "/vid/ranch_app/preview.mp4",
     "media": [
       {
+        "url": "https://player.vimeo.com/video/680268051?h=f66af5a461",
         "type": "video",
-        "url": "https://vimeo.com/1094506992",
         "orientation": "horizontal"
       }
     ]

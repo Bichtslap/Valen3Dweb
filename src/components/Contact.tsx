@@ -3,7 +3,7 @@ import { Mail, MessageSquare, MapPin, Send, Terminal } from 'lucide-react';
 
 const Contact = () => {
   const contactInfo = [
-    { icon: Mail, title: 'EMAIL', content: 'contacto@valer.com.ar', link: 'mailto:valentinmarey@gmail.com', color: 'text-cyan-400'},
+    { icon: Mail, title: 'EMAIL', content: 'hola@valer.com.ar', link: 'mailto:hola@valer.com.ar', color: 'text-cyan-400'},
     { icon: MessageSquare, title: 'WHATSAPP', content: '+54 11 5095-1458', link: 'https://wa.me/5491150951458', color: 'text-red-400'},
     { icon: MapPin, title: 'UBICACION', content: 'Buenos Aires, AR', link: null, color: 'text-yellow-400'}
   ];
