@@ -273,20 +273,26 @@
   {
     "id": "kany_garcia",
     "title": "Kany Garcia - Visuales de Show",
+    "thumbnailUrl": "https://i.ytimg.com/vi/XJNVhY5efR0/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDXgvz0-r09KaZVVs6I7LoObJHMdw",
+    "previewVideo": "vid/kany/kany_preview.mp4",
     "category": "3D",
-    "description": "Visuales para show en vivo realizadas con Unreal Engine.",
-    "longDescription": "Creación de entornos y animaciones en tiempo real utilizando Unreal Engine para las visuales del tour de Kany Garcia. Un proyecto que explora nuevas tecnologías para experiencias en vivo.",
-    "status": "REALTIME 3D",
+    "status": "SHOW VISUALS 3D",
+    "description": "Visuales para show en vivo realizadas con Unreal Engine y Blender.",
+    "longDescription": "Creación de entornos y animaciones en tiempo real renders offline utilizando Unreal Engine para las visuales del tour de Kany Garcia. Un proyecto que explora nuevas tecnologías para experiencias en vivo.",
     "tech": [
       "Unreal Engine",
       "Realtime Graphics",
-      "3D"
+      "Blender 3D"
     ],
-    "thumbnailUrl": "https://i.ytimg.com/vi/TUPS-L9-V-E/maxresdefault.jpg",
     "media": [
       {
-        "type": "image",
-        "url": "https://i.ytimg.com/vi/TUPS-L9-V-E/maxresdefault.jpg",
+        "url": "https://www.youtube.com/embed/Lg4eFw80eLo",
+        "type": "video",
+        "orientation": "horizontal"
+      },
+      {
+        "url": "https://www.youtube.com/embed/XJNVhY5efR0",
+        "type": "video",
         "orientation": "horizontal"
       }
     ]

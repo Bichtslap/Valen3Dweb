@@ -5,20 +5,28 @@ const fs = require('fs');
 const path = require('path');
 
 const app = express();
-const port = 3001; // Un puerto diferente al de tu proyecto principal
+const port = 3001; 
 
 // Middlewares
-app.use(cors()); // Para permitir que tu panel se comunique con este servidor
-app.use(express.json({ limit: '50mb' })); // Para entender los datos JSON que manda el panel
+app.use(cors()); 
+app.use(express.json({ limit: '50mb' })); 
 
-// La ruta al archivo projects.json (ajustala si es necesario)
-// '..' significa que sube un nivel (de editor-backend a la raíz del proyecto)
+// ---------------------------------------------------------
+// 1. ESTA ES LA PARTE QUE TE FALTABA (SERVIR ARCHIVOS ESTÁTICOS)
+// ---------------------------------------------------------
+// Esto le dice a Express: "Cuando te pidan algo en /public, buscalo en la carpeta public de verdad"
+// El path.join(__dirname, '..', 'public') asume que 'server.js' está en una subcarpeta y 'public' está afuera.
+app.use('/public', express.static(path.join(__dirname, '..', 'public')));
+
+
+// La ruta al archivo projects.json 
 const projectsFilePath = path.join(__dirname, '..', 'public', 'projects.json');
 
 // --- API para OBTENER los proyectos ---
 app.get('/api/projects', (req, res) => {
   fs.readFile(projectsFilePath, 'utf8', (err, data) => {
     if (err) {
+      console.error("Error leyendo JSON:", err); // Agregué un log para ver si falla acá
       return res.status(500).send('Error al leer el archivo de proyectos.');
     }
     res.setHeader('Content-Type', 'application/json');
@@ -29,9 +37,9 @@ app.get('/api/projects', (req, res) => {
 // --- API para GUARDAR los proyectos ---
 app.post('/api/projects', (req, res) => {
   const projectsData = req.body;
-  // Usamos JSON.stringify con formato para que el archivo quede legible
   fs.writeFile(projectsFilePath, JSON.stringify(projectsData, null, 2), 'utf8', (err) => {
     if (err) {
+      console.error("Error guardando JSON:", err);
       return res.status(500).send('Error al guardar el archivo de proyectos.');
     }
     res.status(200).send({ message: 'Proyectos guardados con éxito!' });
@@ -41,9 +49,10 @@ app.post('/api/projects', (req, res) => {
 app.listen(port, () => {
   console.log(`
   --------------------------------------------------
-  🚀 Servidor del editor corriendo en http://localhost:${port}
-  Este servidor se encarga de leer y escribir tu projects.json.
-  Dejalo corriendo mientras usas el panel de edición.
+  🚀 Servidor corriendo en http://localhost:${port}
+  
+  👉 PARA ENTRAR AL EDITOR:
+  http://localhost:3001/public/editor.html
   --------------------------------------------------
   `);
 });
