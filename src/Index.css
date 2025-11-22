@@ -339,3 +339,17 @@
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
 }
+
+/* --- Layout para Contenido VERTICAL (9:16) --- */
+.popup-content-grid.is-vertical {
+  grid-template-rows: auto minmax(0, 1fr);
+  max-width: 500px; /* Ancho limitado para que parezca celu */
+  align-items: center;
+}
+
+/* ESTO ES LO IMPORTANTE QUE FALTABA: */
+/* Fuerza al contenedor del video a tener forma de celular 9:16 */
+.popup-content-grid.is-vertical .popup-media-area {
+  aspect-ratio: 9 / 16;
+  width: 100%;
+}

@@ -252,20 +252,31 @@
   {
     "id": "mir_nicolas_ciudad_pop",
     "title": "Mir Nicolas - La Ciudad del Pop",
-    "category": "VFX",
-    "description": "Visuales de show y post-producción.",
-    "longDescription": "Desarrollo de visuales para el show en vivo, combinando técnicas de VFX y edición para crear una experiencia inmersiva que acompañe la música del artista.",
+    "thumbnailUrl": "/IMG/cdp.png",
+    "previewVideo": "/vid/mirnico/preview.mp4",
+    "category": "MOTION",
     "status": "VISUALES DE SHOW",
+    "description": "Visuales de show y post-producción.",
+    "longDescription": "Desarrollo de visuales para visualizers de youtube, edit, diseño grafico direccion visual, y visuales show en vivo, combinando técnicas de VFX y edición, diseñando y dirigiendo la estetica y direccion creativa del disco.\n\nTrabajo realizado en colaboracion con Luciano Grecco y Mir Nicolas en la direccion creativa",
     "tech": [
       "After Effects",
       "VFX",
       "Edición"
     ],
-    "thumbnailUrl": "/IMG/aob.png",
     "media": [
       {
-        "type": "image",
-        "url": "/IMG/aob.png",
+        "url": "https://www.youtube.com/embed/rjO3IfCyyiE?list=PL17dSU_BtElcAeciDWLIMOyDhPzjD6LFw",
+        "type": "video",
+        "orientation": "horizontal"
+      },
+      {
+        "url": "https://www.youtube.com/embed/KDnpp6LvEa0?list=PL17dSU_BtElcAeciDWLIMOyDhPzjD6LFw",
+        "type": "video",
+        "orientation": "horizontal"
+      },
+      {
+        "url": "https://www.youtube.com/embed/rjO3IfCyyiE?list=PL17dSU_BtElcAeciDWLIMOyDhPzjD6LFw",
+        "type": "video",
         "orientation": "horizontal"
       }
     ]
