@@ -265,17 +265,17 @@
     ],
     "media": [
       {
-        "url": "https://www.youtube.com/embed/rjO3IfCyyiE?list=PL17dSU_BtElcAeciDWLIMOyDhPzjD6LFw",
+        "url": "https://youtu.be/rjO3IfCyyiE",
         "type": "video",
         "orientation": "horizontal"
       },
       {
-        "url": "https://www.youtube.com/embed/KDnpp6LvEa0?list=PL17dSU_BtElcAeciDWLIMOyDhPzjD6LFw",
+        "url": "https://youtu.be/KDnpp6LvEa0",
         "type": "video",
         "orientation": "horizontal"
       },
       {
-        "url": "https://www.youtube.com/embed/rjO3IfCyyiE?list=PL17dSU_BtElcAeciDWLIMOyDhPzjD6LFw",
+        "url": "https://youtu.be/mzFSxUO2KRY",
         "type": "video",
         "orientation": "horizontal"
       }
